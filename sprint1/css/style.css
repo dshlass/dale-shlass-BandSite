@@ -251,9 +251,180 @@ html {
   font-size: 62.5%;
 }
 
+ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3,
+h4, h5, h6,
+p, q {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+q {
+  display: block;
+}
+
+.outter-wrapper {
+  margin: 0 1.6rem;
+}
+
+h1 {
+  padding: 50% 20% 0 0;
+  font-size: 2.4rem;
+  color: #FFF;
+}
+
+h2 {
+  margin: 1.2rem 0;
+}
+
+h3 {
+  margin: 2.8rem 0 1.2rem 0;
+}
+
+section {
+  padding: 2.0rem 0 2.8rem 0;
+}
+
+nav a:hover {
+  color: #FAFAFA;
+}
+
 /*********************************** Section 1: Header *********************************************/
+header {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
+  background-size: 100% 100vh;
+  height: 100vh;
+}
+
+nav {
+  background: #323232;
+}
+
+nav a {
+  font-size: 1.4rem;
+  padding: 1rem;
+  color: #AFAFAF;
+}
+
+nav a:hover {
+  color: #FAFAFA;
+}
+
+nav ul {
+  height: 8.0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+nav ul li {
+  width: 50%;
+  position: relative;
+}
+
+nav ul li:nth-child(1) {
+  width: 100%;
+}
+
+.logo-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hover-state:hover::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 90%;
+  bottom: 0;
+  background: #FAFAFA;
+}
+
 /*********************************** Section 2: About *********************************************/
+.band-container {
+  width: 100%;
+  margin: 1.2rem 0;
+}
+
+.about {
+  background: #fff;
+}
+
+.about q {
+  margin: 1.2rem 0 2rem 0;
+}
+
+.about p {
+  margin: 1.2rem 0;
+}
+
 /*********************************** Section 3: Photo Gallery *********************************************/
+.shows {
+  background: #FAFAFA;
+}
+
+.shows h2 {
+  margin: 1.2rem 1.6rem 1.6rem;
+}
+
+.photo-gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gallery-item {
+  margin: 0.8rem 0;
+}
+
 /*********************************** Section 4: Footer *********************************************/
 /*********************************** Section 5: Media Queries *********************************************/
+@media (min-width: 1200px) {
+  .outter-wrapper {
+    margin: 0 18.0rem;
+  }
+  .inner-wrapper {
+    margin: 0 9.2rem;
+  }
+  h1 {
+    font-size: 6.0rem;
+  }
+  nav li > a {
+    font-size: 1.4rem;
+  }
+  nav ul li:nth-child(2) {
+    margin: 0 5.6rem;
+  }
+}
 /*# sourceMappingURL=style.css.map */

@@ -16,14 +16,48 @@
 /***************************************************************************/
 
 
+// DESK/ TAB
+// H1 - Hero Header
+// Text size: 60px / Line height: 68px
+// H1 - Header
+// Text size: 36px / Line height: 44px
+// H2 - Header
+// Text size: 24px / Line height: 32px
+// H3 - Subheader
+// Text size: 16px / Line height: 24px
+// H4 - Paragraph & comments
+// Text size: 14px / Line height: 22px
+// H4 - Lists & contact information
+// Text size: 14px / Line height: 20px
+// H5 - LABELS
+// Text size: 12px / Line height: 20px
+
+// MOBILE
+// H1 - Header
+// Text size: 24px / Line height: 32px
+// H2 - Subheader
+// Text size: 14px / Line height: 22px
+// H4 - Paragraph
+// Text size: 13px / Line height: 18px
+// H4 - Lists & contact information
+// Text size: 13px / Line height: 18px
+// H5 - LABELS
+// Text size: 12px / Line height: 20px
+
 
 
 /*********************************** Setup! *********************************************/
 @import 'normalize';
 
 //Global Variables
+$paragraph-text: #323232;
+$text-label-fill: #AFAFAF;
+$field-border: #E1E1E1; 
+$text-field-bg-fill: #FAFAFA;
 
-
+$nav-bg-fill: #323232; 
+$primary-cta: #323232 ;
+$primary-cta-hover: #0065AD;
 
 /************************* General Settings of Elements and Sections...and Stylistic Sugar! *************************/
 
@@ -31,16 +65,192 @@ html {
   font-size: 62.5%;
 }
 
+ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3,
+h4, h5, h6, 
+p, q {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+q {
+  display: block;
+}
+
+.outter-wrapper {
+  margin: 0 1.6rem;
+}
+
+.inner-wrapper {
+  // margin: 0 9.2rem;
+}
+
+h1 {
+  padding: 50% 20% 0 0;
+  font-size: 2.4rem;
+  color: #FFF;
+}
+
+h2 {
+  margin: 1.2rem 0;
+}
+
+h3 {
+  margin: 2.8rem 0 1.2rem 0;
+}
+
+section {
+  padding: 2.0rem 0 2.8rem 0;
+}
+
+nav a:hover {
+  color: #FAFAFA;
+}
 
 /*********************************** Section 1: Header *********************************************/
 
+header {
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)),url("../assets/images/hero.jpg");
+  background-size: 100% 100vh;
+  // background-size: cover;
+  // background-attachment: fixed;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  height: 100vh;
+}
+
+nav {
+  background: $nav-bg-fill;
+
+  a {
+    font-size: 1.4rem;
+    padding: 1rem;
+    color: #AFAFAF;
+
+    &:hover {
+      color: #FAFAFA;
+    }
+  }
+
+  ul {
+    height: 8.0rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+      
+    li {
+      width: 50%;
+      position: relative;
+
+      &:nth-child(1) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.logo-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hover-state:hover::after {
+  position: absolute;
+  content: "";
+  left:0;
+  right: 0;
+  top: 90%;
+  bottom: 0;
+  background: #FAFAFA;
+}
+
+
+
 /*********************************** Section 2: About *********************************************/
 
+.band-container {
+  width: 100%;
+  margin: 1.2rem 0;
+}
+
+.about {
+  background: #fff;
+
+  q {
+    margin: 1.2rem 0 2rem 0;
+  }
+
+  p {
+    margin: 1.2rem 0;
+  }
+}
+
 /*********************************** Section 3: Photo Gallery *********************************************/
+
+.shows {
+  background: #FAFAFA;
+
+  h2 {
+      margin: 1.2rem 1.6rem 1.6rem;
+  }
+}
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item {
+  margin: 0.8rem 0;
+}
+
+
 
 /*********************************** Section 4: Footer *********************************************/
 
 /*********************************** Section 5: Media Queries *********************************************/
 
+@media (min-width: 550px) {
 
+}
 
+@media (min-width: 1200px) {
+  .outter-wrapper {
+    margin: 0 18.0rem;
+  }
+
+  .inner-wrapper {
+    margin: 0 9.2rem;
+  }
+
+  h1 {
+    font-size: 6.0rem;
+  }
+
+  nav li > a {
+    font-size: 1.4rem;
+  }
+
+  nav ul li:nth-child(2) {
+    margin: 0 5.6rem;
+  }
+}
