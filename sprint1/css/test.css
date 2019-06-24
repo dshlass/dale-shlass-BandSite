@@ -1,0 +1,465 @@
+/***************************************************************************/
+/*      LEGEND                                                             */
+/*      HIGHLIGHT AND USE USE CTRL + F + ENTER TO SKIP TO EACH SECTION     */
+/*                                                                         */
+/*                                                                         */
+/*      SETUP!                                                             */
+/*      Style Guide                                                        */
+/*      General Settings of Elements and Sections...and Stylistic Sugar!   */
+/*      Section 1: Header                                                  */
+/*      Section 2: About                                                   */
+/*      Section 3: Photo Gallery                                           */
+/*      Section 4: Footer                                                  */
+/*      Section 5: Media Queries                                           */
+/*                                                                         */
+/***************************************************************************/
+/*********************************** Setup! *********************************************/
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+figcaption, figure, main {
+  display: block;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: inherit;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+audio, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html [type=button], [type=reset], [type=submit] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: .35em .75em .625em;
+}
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox], [type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details, menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+canvas {
+  display: inline-block;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "AvenirBold";
+  src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Bold.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AvenirDemiBold";
+  src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Demi.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro Demi.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AvenirRegular";
+  src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
+/************************* General Settings of Elements and Sections...and Stylistic Sugar! *************************/
+html {
+  font-size: 62.5%;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3,
+h4, h5, h6,
+p {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: AvenirBold, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+@media only screen and (min-width: 550px) {
+  h1 {
+    font-size: 6rem;
+    line-height: 6.8rem;
+  }
+}
+
+h2 {
+  font-family: AvenirBold, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+h3 {
+  font-family: AvenirBold, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+@media only screen and (min-width: 550px) {
+  h3 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+p {
+  font-family: AvenirRegular, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+
+@media only screen and (min-width: 550px) {
+  p {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+}
+
+.padding--wrapper, .header__title {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .padding--wrapper, .header__title {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .padding--wrapper, .header__title {
+    padding-left: 18rem;
+    padding-right: 18rem;
+  }
+}
+
+/*********************************** Section 1: Header *********************************************/
+.header {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 26.3rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .header {
+    height: 40rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    height: 67rem;
+  }
+}
+
+.header__title {
+  color: #FFF;
+  padding-top: 20%;
+}
+
+@media only screen and (min-width: 550px) {
+  .header__title {
+    padding-top: 10%;
+  }
+}
+
+.nav {
+  background: #323232;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 8.0rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav__item {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  position: relative;
+}
+
+.nav__item--full {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+.nav__item--half {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+
+.nav__item--hover:hover::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 90%;
+  bottom: 0;
+  background: #FAFAFA;
+}
+
+.nav__logo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.nav__link {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-family: AvenirDemiBold, Helvetica, sans-serif;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 8px;
+  color: #AFAFAF;
+  position: relative;
+  z-index: 5;
+}
+
+.nav__link:hover {
+  color: #FAFAFA;
+}
+
+/*********************************** Section 2: About *********************************************/
+/*********************************** Section 3: Photo Gallery *********************************************/
+/*********************************** Section 4: Footer *********************************************/
+/*********************************** Section 5: Media Queries *********************************************/
+/*# sourceMappingURL=test.css.map */
