@@ -391,19 +391,19 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 26.3rem;
+  height: 34.3rem;
   position: relative;
 }
 
 @media only screen and (min-width: 550px) {
   .header {
-    height: 40rem;
+    height: 48rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .header {
-    height: 67rem;
+    height: 75rem;
   }
 }
 
