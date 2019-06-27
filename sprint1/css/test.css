@@ -336,33 +336,63 @@ p {
   }
 }
 
-.padding--wrapper, .header__title {
+.padding--mobile, .section, .section--about {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .padding--wrapper, .header__title {
+  .padding--tablet, .section, .section--about, .nav {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .padding--wrapper, .header__title {
+  .padding--desktop, .section, .section--about, .nav {
     padding-left: 18rem;
     padding-right: 18rem;
   }
 }
 
+.margin--wrapper, .header__title {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .margin--wrapper, .header__title {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .margin--wrapper, .header__title {
+    margin-left: 18rem;
+    margin-right: 18rem;
+  }
+}
+
 /*********************************** Section 1: Header *********************************************/
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/hero.jpg");
   background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 26.3rem;
+  position: relative;
 }
 
 @media only screen and (min-width: 550px) {
@@ -378,17 +408,27 @@ p {
 }
 
 .header__title {
+  max-width: 21rem;
   color: #FFF;
-  padding-top: 20%;
 }
 
 @media only screen and (min-width: 550px) {
   .header__title {
-    padding-top: 10%;
+    max-width: 59.6rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header__title {
+    max-width: 52.8rem;
   }
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: #323232;
 }
 
@@ -401,6 +441,14 @@ p {
   height: 8.0rem;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media only screen and (min-width: 550px) {
+  .nav__list {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 
 .nav__item {
@@ -420,10 +468,41 @@ p {
           flex: 0 0 100%;
 }
 
+@media only screen and (min-width: 550px) {
+  .nav__item--full {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+    margin-right: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav__item--full {
+    margin-right: 56px;
+  }
+}
+
 .nav__item--half {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
+}
+
+@media only screen and (min-width: 550px) {
+  .nav__item--half {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+    margin-right: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav__item--half {
+    margin-right: 56px;
+    min-width: 80px;
+  }
 }
 
 .nav__item--hover:hover::after {
@@ -434,6 +513,12 @@ p {
   top: 90%;
   bottom: 0;
   background: #FAFAFA;
+}
+
+@media only screen and (min-width: 550px) {
+  .nav__item--hover:hover::after {
+    top: 95%;
+  }
 }
 
 .nav__logo {
@@ -456,6 +541,12 @@ p {
 
 .nav__link:hover {
   color: #FAFAFA;
+}
+
+@media only screen and (min-width: 550px) {
+  .nav__link {
+    padding: 30px 0 24px 0;
+  }
 }
 
 /*********************************** Section 2: About *********************************************/

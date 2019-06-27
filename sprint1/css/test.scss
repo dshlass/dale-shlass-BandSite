@@ -62,6 +62,13 @@ $primary-cta-hover: #0065AD;
 $Tablet: 'only screen and (min-width: 550px)';
 $Desktop: 'only screen and (min-width: 1200px)';
 
+//Setting up the grids
+$gutter: 2.4rem;
+$column--mobile: 5.4rem;
+$column--tablet: 10rem;
+$column--desktop: 6.8rem;
+
+
 //Importing fonts
 @font-face {
     font-family: "AvenirBold";
@@ -97,6 +104,19 @@ $Desktop: 'only screen and (min-width: 1200px)';
     @include font-line($fs, $lh);
   }
 }
+
+@mixin media-max-width($breakpoint, $num-column, $num-gutter) {
+ @if $breakpoint == Mobile {
+      max-width: $num-column * $column--mobile + $num-gutter * $gutter;
+  }
+  @if $breakpoint == Tablet {
+    max-width: $num-column * $column--tablet + $num-gutter * $gutter;
+  }
+  @if $breakpoint == Desktop {
+    max-width: $num-column * $column--desktop + $num-gutter * $gutter;
+  }
+}
+
 
 
 /************************* General Settings of Elements and Sections...and Stylistic Sugar! *************************/
@@ -153,20 +173,86 @@ p {
   @include media-font(550px, 1.4rem, 2.2rem);
 }
 
-.padding--wrapper {
+.padding--mobile {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
 
+.padding--tablet {
   @media #{$Tablet} {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
   }
+}
 
-  @media #{$Desktop} {
+.padding--desktop {
+ @media #{$Desktop} {
     padding-left: 18rem;
     padding-right: 18rem;
   }
 }
+
+// .padding--nav {
+//   @media #{$Tablet} {
+//     padding-left: 2.4rem;
+//     padding-right: 2.4rem;
+//   }
+//    @media #{$Desktop} {
+//     padding-left: 18rem;
+//     padding-right: 18rem;
+//   }
+// }
+// .margin--mobile {
+//   margin-left: 1.5rem;
+//   margin-right: 1.5rem;
+// }
+
+// .margin--tablet {
+//   @media #{$Tablet} {
+//     margin-left: 2.4rem;
+//     margin-right: 2.4rem;
+//   }
+// }
+
+// .margin--desktop {
+//  @media #{$Desktop} {
+//     margin-left: 18rem;
+//     margin-right: 18rem;
+//   }
+// }
+
+.margin--wrapper{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  
+  @media #{$Tablet} {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+  
+  @media #{$Desktop} {
+    margin-left: 18rem;
+    margin-right: 18rem;
+  }
+}
+
+.margin--tablet {
+
+}
+
+.margin--desktop {
+
+}
+
+//68 + 24 = 92
+ 
+
+
+// @mixin padding--wrapper ($breakpoint)  {
+//   @media #{$breakpoint} {
+//     @include .padding;
+//   }
+// }
 
 // Work on Setting up responsive padding for the h2's and h3 
 // .padding--h2 {
@@ -199,20 +285,26 @@ p {
 //   }
 // }
 
-// section, footer {
-//   padding: 2.0rem 0 2.8rem 0;
-// }
+.section {
+  @extend .padding--mobile;
+  @extend .padding--tablet;
+  @extend .padding--desktop;
+}
 
 /*********************************** Section 1: Header *********************************************/
-
+//Header component
 //Possibly have height restrictions as noted in requirements.
 .header {
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)),url("../assets/images/hero.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   // height: 100vh;
   height: 26.3rem;
+  position:relative;
 
   @media #{$Tablet} {
     height: 40rem;
@@ -222,41 +314,77 @@ p {
     height: 67rem;
   }
 
+  //Header title and media queries
   &__title {
-    @extend .padding--wrapper;
+    @extend .margin--wrapper;
+
+    @include media-max-width(Mobile, 3, 2);
     color: #FFF;
-    padding-top: 20%;
 
     @media #{$Tablet} {
-      padding-top: 10%;
+      @include media-max-width(Tablet, 5, 4);
+    }
+
+    @media #{$Desktop} {
+      @include media-max-width(Desktop, 6, 5);
     }
   }
 }
 
+//Nav component
 .nav {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
   background: $nav-bg-fill;
+  @extend .padding--tablet;
+  @extend .padding--desktop;
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     height: 8.0rem;
     justify-content: space-around;
+    
+    @media #{$Tablet} {
+      justify-content: flex-start;
+    }
   }
 
   &__item {
     text-align: center;
     display: flex;
     align-items: stretch;
-    // align-items: center;
     position: relative;
 
     &--full {
       flex: 0 0 100%;
+
+      @media #{$Tablet} {
+        flex: 0;
+        margin-right: 24px;
+      }
+
+      @media #{$Desktop} {
+        margin-right: 56px;
+      }
     }
 
     &--half {
       flex: 0 0 50%;
+      
+      @media #{$Tablet} {
+        flex: 0;
+        margin-right: 24px;
+      }
+
+      @media #{$Desktop} {
+        margin-right: 56px;
+        min-width: 80px;
+      }
     }
+
 
     &--hover:hover::after {
       position: absolute;
@@ -266,61 +394,45 @@ p {
       top: 90%;
       bottom: 0;
       background: #FAFAFA;
+
+      @media #{$Tablet} {
+        top: 95%;
+      }   
     }
   }
 
    &__logo {
-      width: 100px; 
-      margin: 0 auto;
+    width: 100px; 
+    margin: 0 auto;
   }
 
   // Added z-index so the link is above li allowing for you to hover and click
+  //Ask about link and band logo size
   &__link {
-      @include font-line(1.3rem,1.8rem);
-      @include font-family(AvenirDemiBold);
-      flex:1;
-      padding: 8px;
-      color: #AFAFAF;
-      position: relative;
-      z-index: 5;
+    @include font-line(1.3rem,1.8rem);
+    @include font-family(AvenirDemiBold);
+    flex:1;
+    padding: 8px;
+    color: #AFAFAF;
+    position: relative;
+    z-index: 5;
 
-      &:hover {
-        color: #FAFAFA
-      }
+    &:hover {
+      color: #FAFAFA
+    }
+
+    @media #{$Tablet} {
+      padding: 30px 0 24px 0;
+    }    
   }
 }
 
-// nav li a {
-//   flex:1;
-//   padding: 8px;
-//   color:#AFAFAF;
-//   font-family: 'Normal';
-//   font-weight: 500;
-//   font-size: 1.3rem;
-//   line-height: 2.2rem;
-  
-//   &:hover {
-//     color: #FAFAFA
-//   }
-// }
-
-// .logo {
-//   width: 100px; 
-//   margin: 0 auto;
-// }
-
-// .hover-state:hover::after {
-//   position: absolute;
-//   content: "";
-//   left:0;
-//   right: 0;
-//   top: 90%;
-//   bottom: 0;
-//   background: #FAFAFA;
-// }
-
 
 /*********************************** Section 2: About *********************************************/
+
+.section--about {
+  @extend .section;
+}
 
 // .band-container {
 //   width: 100%;
@@ -611,4 +723,3 @@ p {
 //   }
 // }
 // }
-
