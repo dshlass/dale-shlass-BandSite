@@ -291,65 +291,54 @@ a {
   text-decoration: none;
 }
 
-.header-hero, .header__title {
-  font-weight: 600;
+h1 {
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
   line-height: 3.2rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .header-hero, .header__title {
+  h1 {
     font-size: 6rem;
     line-height: 6.8rem;
   }
 }
 
-.header-section {
-  font-weight: 600;
+h2 {
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
   line-height: 3.2rem;
 }
 
-.header-sub {
-  font-weight: 600;
+h3 {
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 1.4rem;
   line-height: 2.2rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .header-sub {
+  h3 {
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
 }
 
-.paragraph-regular {
-  font-weight: 400;
+p {
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
   line-height: 1.8rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .paragraph-regular {
+  p {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
 }
 
-.paragraph-bold {
-  font-weight: 500;
-  font-family: AvenirDemiBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
 .padding--mobile, .section {
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media only screen and (min-width: 550px) {
@@ -367,8 +356,8 @@ a {
 }
 
 .margin--wrapper, .header__title {
-  margin-left: 1.6rem;
-  margin-right: 1.6rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 @media only screen and (min-width: 550px) {
@@ -540,7 +529,6 @@ a {
 .nav__link {
   font-size: 1.3rem;
   line-height: 1.8rem;
-  font-weight: 500;
   font-family: AvenirDemiBold, Helvetica, sans-serif;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -560,9 +548,4 @@ a {
     padding: 30px 0 24px 0;
   }
 }
-
-/*********************************** Section 2: About *********************************************/
-/*********************************** Section 3: Photo Gallery *********************************************/
-/*********************************** Section 4: Footer *********************************************/
-/*********************************** Section 5: Media Queries *********************************************/
-/*# sourceMappingURL=test.css.map */
+/*# sourceMappingURL=header.css.map */

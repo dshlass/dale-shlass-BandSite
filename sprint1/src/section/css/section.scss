@@ -1,0 +1,80 @@
+@import '../../../css/normalize';
+@import '../../../css/test.scss';
+
+
+.section {
+  @extend .section;
+
+  &__title {
+    @extend .header-section;
+  }
+
+  &__text {
+    @extend .paragraph-regular;
+
+    &--bold {
+      @extend .paragraph-bold;
+    }
+
+    &--quote {
+      @media #{$Tablet} {
+        @include font-family(AvenirBold);
+        @include font-line(1.4rem, 2.2rem);
+        @include media-font(550px, 1.6rem, 2.4rem);
+      }
+    }
+
+    &--description {
+      @media #{$Tablet} {
+        padding-right: 2.4rem;
+      }
+
+      @media #{$Desktop} {
+        padding-right: 4.0rem;
+      }
+    }
+  }
+
+  &__sub-header {
+    @extend .header-sub;
+  }
+
+  &__content {
+    @media #{$Desktop} {
+      @include media-max-width(Desktop, 10, 9); 
+      margin: 0 auto;
+    }
+
+    &--description {
+      @media #{$Tablet} {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &--gallery {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @media #{$Tablet} {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__img--gallery {
+    margin-bottom: 1.6rem;
+
+    @media #{$Tablet} {
+      max-width: percentage(2.24rem / 7.2rem);
+      margin-bottom: 2.4rem; 
+    }
+    @media #{$Desktop} {
+      max-width: percentage(3.44rem / 10.8rem);
+    }
+  }
+}
+
+
