@@ -1,0 +1,79 @@
+@import '../../../css/normalize';
+@import '../../../css/variables';
+
+//Start of Footer flex container
+.footer {
+  //add padding and margins etc here -extend
+  background: $nav-bg-fill;
+  color: white;
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$Tablet} {
+      flex-direction: row; 
+    }
+    
+  }
+
+  &__title {
+      @extend .header-section;
+    }
+  }
+//End of Footer flex container
+
+//Start of Social flex container
+  .social {
+    flex-direction: row;
+    
+    //Need to figure out size and spacing of this section
+    // &__container {
+      //// width: 4rem;
+    // }
+    
+    // &__img {
+    ////   height: 4rem;
+    ////   width: 4rem;
+    // }
+
+    &__logo {
+      display: none;
+
+      @media #{$Tablet} {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  }
+//End of Social flex container
+
+//Start of Contact flex container
+  .contact {
+    //add bottom padding here
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+    }
+
+    &__text {
+      @extend .paragraph-regular;
+    
+      &--bold {
+        @include font-family(AvenirBold);
+      }
+
+      &--padding {
+        //add padding here
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    &__mail {
+      @extend .paragraph-regular;
+      color: white;
+    }
+  }
+//End of Contact flex container

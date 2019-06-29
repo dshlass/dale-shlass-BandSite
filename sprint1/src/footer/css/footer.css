@@ -245,7 +245,7 @@ template {
   src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro.ttf") format("truetype");
 }
 
-.header-section, .header-hero, .section__title {
+.header-section, .header-hero, .footer__title {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -259,7 +259,7 @@ template {
   }
 }
 
-.header-sub, .section__sub-header {
+.header-sub {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 1.4rem;
@@ -267,13 +267,13 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .header-sub, .section__sub-header {
+  .header-sub {
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
 }
 
-.paragraph-regular, .section__text {
+.paragraph-regular, .contact__text, .contact__mail {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -281,33 +281,33 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .paragraph-regular, .section__text {
+  .paragraph-regular, .contact__text, .contact__mail {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
 }
 
-.paragraph-bold, .section__text--bold {
+.paragraph-bold {
   font-weight: 500;
   font-family: AvenirDemiBold, Helvetica, sans-serif;
   font-size: 1.4rem;
   line-height: 2.2rem;
 }
 
-.padding--mobile, .section {
+.padding--mobile {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .padding--tablet, .section {
+  .padding--tablet {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .padding--desktop, .section {
+  .padding--desktop {
     padding-left: 12.5%;
     padding-right: 12.5%;
   }
@@ -362,62 +362,15 @@ a {
   text-decoration: none;
 }
 
-.section--shows {
-  background: #FAFAFA;
+.footer {
+  background: #323232;
+  color: white;
 }
 
-@media only screen and (min-width: 550px) {
-  .section__text--quote {
-    font-weight: 600;
-    font-family: AvenirBold, Helvetica, sans-serif;
-    font-size: 1.4rem;
-    line-height: 2.2rem;
-  }
-}
-
-@media only screen and (min-width: 550px) and (min-width: 550px) {
-  .section__text--quote {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-@media only screen and (min-width: 550px) {
-  .section__text--description {
-    max-width: 48.33333%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section__text--description {
-    max-width: 48.14815%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section__content {
-    max-width: 82.96296%;
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (min-width: 550px) {
-  .section__content--description {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-
-.section__content--gallery {
+.footer__flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -425,48 +378,52 @@ a {
 }
 
 @media only screen and (min-width: 550px) {
-  .section__content--gallery {
+  .footer__flex {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
   }
 }
 
-.section__img-container--gallery {
-  margin-bottom: 1.6rem;
+.social {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.social__logo {
+  display: none;
 }
 
 @media only screen and (min-width: 550px) {
-  .section__img-container--gallery {
-    max-width: 31.11111%;
-    margin-bottom: 3.33333%;
+  .social__logo {
+    display: block;
+    margin-left: auto;
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .section__img-container--gallery {
-    max-width: 31.85185%;
-    margin-bottom: 2.22222%;
-  }
+.contact__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.section__img {
-  height: 14.5rem;
+.contact__text--bold {
+  font-weight: 600;
+  font-family: AvenirBold, Helvetica, sans-serif;
 }
 
-@media only screen and (min-width: 550px) {
-  .section__img {
-    height: 36.2rem;
-  }
+.contact__text--padding {
+  padding-bottom: 1.5rem;
 }
 
-@media only screen and (min-width: 1200px) {
-  .section__img {
-    height: 45rem;
-  }
+.contact__mail {
+  color: white;
 }
-/*# sourceMappingURL=section.css.map */
+/*# sourceMappingURL=footer.css.map */

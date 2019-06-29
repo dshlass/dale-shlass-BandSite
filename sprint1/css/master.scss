@@ -1,0 +1,13 @@
+//Normalizing the browser specific stylings
+@import 'normalize';
+
+//Imports my variables, mixins and classes that extended into other files
+@import 'variables';
+
+//Imports the header specific styles
+@import './../src/header/css/header';
+
+//Imports the section specific styles 
+@import './../src/section/css/section';
+
+@import './../src/footer/css/footer';
