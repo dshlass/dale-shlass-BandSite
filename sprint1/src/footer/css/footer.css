@@ -245,7 +245,7 @@ template {
   src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro.ttf") format("truetype");
 }
 
-.header-section, .header-hero, .footer__title {
+.footer__title {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -253,27 +253,13 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .header-hero {
-    font-size: 6rem;
-    line-height: 6.8rem;
+  .footer__title {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
   }
 }
 
-.header-sub {
-  font-weight: 600;
-  font-family: AvenirBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
-@media only screen and (min-width: 550px) {
-  .header-sub {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-.paragraph-regular, .contact__text, .contact__mail {
+.contact__text, .contact__mail {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -281,54 +267,28 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .paragraph-regular, .contact__text, .contact__mail {
+  .contact__text, .contact__mail {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
 }
 
-.paragraph-bold {
-  font-weight: 500;
-  font-family: AvenirDemiBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
-.padding--mobile {
+.footer {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .padding--tablet {
+  .footer {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .padding--desktop {
+  .footer {
     padding-left: 12.5%;
     padding-right: 12.5%;
-  }
-}
-
-.margin--wrapper {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-@media only screen and (min-width: 550px) {
-  .margin--wrapper {
-    margin-left: 3.125%;
-    margin-right: 3.125%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .margin--wrapper {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
   }
 }
 
@@ -362,9 +322,40 @@ a {
   text-decoration: none;
 }
 
+blockquote {
+  padding: 0;
+  margin: 0;
+}
+
 .footer {
   background: #323232;
   color: white;
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 550px) {
+  .footer {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .footer {
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .footer {
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .footer {
+    padding-bottom: 40px;
+  }
 }
 
 .footer__flex {
@@ -386,6 +377,35 @@ a {
   }
 }
 
+.footer__title {
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .footer__title {
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .footer__title {
+    padding-bottom: 56px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .footer__title {
+    width: 224px;
+    margin-right: 2.4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .footer__title {
+    width: 252px;
+  }
+}
+
 .social {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -393,14 +413,81 @@ a {
           flex-direction: row;
 }
 
+.social__container {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-right: 2.4rem;
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .social__container {
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .social__container {
+    padding-bottom: 56px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .social__container {
+    margin-right: 3.2rem;
+  }
+}
+
+.social__img {
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.social__img:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
 .social__logo {
+  width: 120px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   display: none;
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .social__logo {
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .social__logo {
+    padding-bottom: 56px;
+  }
 }
 
 @media only screen and (min-width: 550px) {
   .social__logo {
     display: block;
     margin-left: auto;
+  }
+}
+
+.contact {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media only screen and (min-width: 1200px) {
+  .contact {
+    max-width: 74.44444%;
   }
 }
 
@@ -412,6 +499,10 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 4.0rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .contact__text--bold {
@@ -420,10 +511,11 @@ a {
 }
 
 .contact__text--padding {
-  padding-bottom: 1.5rem;
+  padding-bottom: 2.4rem;
 }
 
 .contact__mail {
   color: white;
+  word-break: break-all;
 }
 /*# sourceMappingURL=footer.css.map */

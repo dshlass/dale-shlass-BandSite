@@ -17,6 +17,8 @@ $column--mobile: 5.4rem;
 $column--tablet: 10rem;
 $column--desktop: 6.8rem;
 
+//Spacing for content
+
 
 //Importing fonts
 @font-face {
@@ -76,60 +78,80 @@ $column--desktop: 6.8rem;
   }
 }
 
+@mixin media-bottom-padding($mobile-padding, $desktop-padding) {
+  padding-bottom: $mobile-padding;
 
-.header-section {
-  @include font-family(AvenirBold);
-  @include font-line(2.4rem, 3.2rem);
+  @media only screen and (min-width: 550px) {
+    padding-bottom: ($mobile-padding + (($desktop-padding - $mobile-padding)/2));
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding-bottom: $desktop-padding;
+  }
 }
 
-.header-hero {
-  @extend .header-section;
+@mixin media-top-padding($mobile-padding, $desktop-padding) {
+  padding-top: $mobile-padding;
+
+  @media only screen and (min-width: 550px) {
+    padding-top: ($mobile-padding + (($desktop-padding - $mobile-padding)/2));
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding-top: $desktop-padding;
+  }
+}
+
+//Setting up 
+%header-hero {
+  @include font-family(AvenirBold);
+  @include font-line(2.4rem, 3.2rem);
   @include media-font(550px, 6.0rem, 6.8rem);
 }
 
-.header-sub {
+%header-section {
   @include font-family(AvenirBold);
-  @include font-line(1.4rem, 2.2rem);
-  @include media-font(550px, 1.6rem, 2.4rem);
+  @include font-line(2.4rem, 3.2rem);
+  @include media-font(550px, 3.6rem, 4.4rem);
 }
 
-.paragraph-regular {
+%header-sub {
+  @include font-family(AvenirBold);
+  @include font-line(1.4rem, 2.2rem);
+  @include media-font(550px, 2.4rem, 3.2rem);
+}
+
+%paragraph-regular {
   @include font-family(AvenirRegular);
   @include font-line(1.3rem, 1.8rem);
   @include media-font(550px, 1.4rem, 2.2rem);
 }
 
-.paragraph-bold {
+%paragraph-bold {
   @include font-family(AvenirDemiBold);
-  @include font-line(1.4rem, 2.2rem);
+  @include font-line(1.6rem, 2.4rem);
 }
 
-.padding--mobile {
-  // padding-left: 1.6rem;
-  // padding-right: 1.6rem;
+%padding--mobile {
   padding-left: percentage(1.6rem / 32rem);
   padding-right: percentage(1.6rem / 32rem);
 }
 
-.padding--tablet {
+%padding--tablet {
   @media #{$Tablet} {
-    // padding-left: 2.4rem;
-    // padding-right: 2.4rem;
     padding-left: percentage(2.4rem / 76.8rem);
     padding-right: percentage(2.4rem / 76.8rem);
   }
 }
 
-.padding--desktop {
+%padding--desktop {
  @media #{$Desktop} {
-    // padding-left: 18rem;
-    // padding-right: 18rem;
     padding-left: percentage(18rem / 144.0rem);
     padding-right: percentage(18rem / 144.0rem);
   }
 }
 
-.margin--wrapper{
+%margin--wrapper{
   margin-left: percentage(1.6rem / 32rem);
   margin-right: percentage(1.6rem / 32rem);
   
@@ -173,4 +195,9 @@ img {
 a {
   display: inline-block;
   text-decoration: none;
+}
+
+blockquote {
+  padding: 0;
+  margin: 0;
 }

@@ -245,7 +245,7 @@ template {
   src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro.ttf") format("truetype");
 }
 
-.header-section, .header-hero, .section__title {
+.section__title {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -253,13 +253,13 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .header-hero {
-    font-size: 6rem;
-    line-height: 6.8rem;
+  .section__title {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
   }
 }
 
-.header-sub, .section__sub-header {
+.section__sub-header {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 1.4rem;
@@ -267,13 +267,13 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .header-sub, .section__sub-header {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+  .section__sub-header {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
   }
 }
 
-.paragraph-regular, .section__text {
+.section__text {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -281,54 +281,35 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .paragraph-regular, .section__text {
+  .section__text {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
 }
 
-.paragraph-bold, .section__text--bold {
+.section__text--bold {
   font-weight: 500;
   font-family: AvenirDemiBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
-.padding--mobile, .section {
+.section {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .padding--tablet, .section {
+  .section {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .padding--desktop, .section {
+  .section {
     padding-left: 12.5%;
     padding-right: 12.5%;
-  }
-}
-
-.margin--wrapper {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-@media only screen and (min-width: 550px) {
-  .margin--wrapper {
-    margin-left: 3.125%;
-    margin-right: 3.125%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .margin--wrapper {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
   }
 }
 
@@ -362,8 +343,132 @@ a {
   text-decoration: none;
 }
 
+blockquote {
+  padding: 0;
+  margin: 0;
+}
+
+.section--about {
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section--about {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--about {
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .section--about {
+    padding-bottom: 44px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--about {
+    padding-bottom: 48px;
+  }
+}
+
 .section--shows {
+  padding-top: 32px;
+  padding-bottom: 24px;
   background: #FAFAFA;
+}
+
+@media only screen and (min-width: 550px) {
+  .section--shows {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--shows {
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .section--shows {
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--shows {
+    padding-bottom: 16px;
+  }
+}
+
+.section__title--about {
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__title--about {
+    padding-bottom: 36px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__title--about {
+    padding-bottom: 48px;
+  }
+}
+
+.section__title--shows {
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__title--shows {
+    padding-bottom: 44px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__title--shows {
+    padding-bottom: 64px;
+  }
+}
+
+.section__quote {
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__quote {
+    padding-bottom: 48px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__quote {
+    padding-bottom: 56px;
+  }
+}
+
+.section__text--quote {
+  padding-bottom: 32px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__text--quote {
+    padding-bottom: 36px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__text--quote {
+    padding-bottom: 40px;
+  }
 }
 
 @media only screen and (min-width: 550px) {
@@ -377,8 +482,8 @@ a {
 
 @media only screen and (min-width: 550px) and (min-width: 550px) {
   .section__text--quote {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
   }
 }
 
@@ -391,6 +496,22 @@ a {
 @media only screen and (min-width: 1200px) {
   .section__text--description {
     max-width: 48.14815%;
+  }
+}
+
+.section__sub-header {
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__sub-header {
+    padding-bottom: 33px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__sub-header {
+    padding-bottom: 42px;
   }
 }
 
@@ -436,6 +557,22 @@ a {
   }
 }
 
+.section__img-container {
+  padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section__img-container {
+    padding-bottom: 36px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section__img-container {
+    padding-bottom: 48px;
+  }
+}
+
 .section__img-container--gallery {
   margin-bottom: 1.6rem;
 }
@@ -454,18 +591,32 @@ a {
   }
 }
 
-.section__img {
+.section__img--shows {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.section__img--shows:hover {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.section__img--about {
   height: 14.5rem;
 }
 
 @media only screen and (min-width: 550px) {
-  .section__img {
+  .section__img--about {
     height: 36.2rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .section__img {
+  .section__img--about {
     height: 45rem;
   }
 }

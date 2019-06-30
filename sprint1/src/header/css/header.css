@@ -245,7 +245,7 @@ template {
   src: url("./fonts/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf") format("opentype"), url("./fonts/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro.ttf") format("truetype");
 }
 
-.header-section, .header-hero, .header__title {
+.header__title {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -253,80 +253,40 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .header-hero, .header__title {
+  .header__title {
     font-size: 6rem;
     line-height: 6.8rem;
   }
 }
 
-.header-sub {
-  font-weight: 600;
-  font-family: AvenirBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
 @media only screen and (min-width: 550px) {
-  .header-sub {
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-.paragraph-regular {
-  font-weight: 400;
-  font-family: AvenirRegular, Helvetica, sans-serif;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-}
-
-@media only screen and (min-width: 550px) {
-  .paragraph-regular {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
-  }
-}
-
-.paragraph-bold {
-  font-weight: 500;
-  font-family: AvenirDemiBold, Helvetica, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
-.padding--mobile {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-@media only screen and (min-width: 550px) {
-  .padding--tablet, .nav {
+  .nav {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .padding--desktop, .nav {
+  .nav {
     padding-left: 12.5%;
     padding-right: 12.5%;
   }
 }
 
-.margin--wrapper, .header__title {
+.header__title {
   margin-left: 5%;
   margin-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .margin--wrapper, .header__title {
+  .header__title {
     margin-left: 3.125%;
     margin-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .margin--wrapper, .header__title {
+  .header__title {
     margin-left: 12.5%;
     margin-right: 12.5%;
   }
@@ -360,6 +320,11 @@ img {
 a {
   display: inline-block;
   text-decoration: none;
+}
+
+blockquote {
+  padding: 0;
+  margin: 0;
 }
 
 .header {
@@ -416,6 +381,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
   background: #323232;
 }
 

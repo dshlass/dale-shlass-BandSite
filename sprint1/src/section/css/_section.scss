@@ -1,41 +1,64 @@
+//Start of Section components
 .section {
-  @extend .padding--mobile;
-  @extend .padding--tablet;
-  @extend .padding--desktop;
+  @extend %padding--mobile;
+  @extend %padding--tablet;
+  @extend %padding--desktop;
+
+  &--about {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(40px,48px);
+  }
 
   &--shows {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(24px,16px); 
+    //This takes into account the percent based bottom margins on the image gallery
+    //24px + 16px mobile, 20px + 24px tablet, 16px + 24px desktop
+
     background: #FAFAFA;
   }
   
   &__title {
-    @extend .header-section;
+    @extend %header-section;
+
+    &--about {
+      @include media-bottom-padding(24px,48px);
+    }
+
+    &--shows {
+      @include media-bottom-padding(24px,64px);
+    }
+  }
+
+  &__quote {
+    @include media-bottom-padding(40px,56px);
   }
 
   //Start of the Text Element
   &__text {
-    @extend .paragraph-regular;
+    @extend %paragraph-regular;
 
     &--bold {
-      @extend .paragraph-bold;
+      @extend %paragraph-bold;
     }
 
     &--quote {
+      @include media-bottom-padding(32px,40px);
+
       //Have to manually set font-size, font family and due to cascading effect
       @media #{$Tablet} {
         @include font-family(AvenirBold);
         @include font-line(1.4rem, 2.2rem);
-        @include media-font(550px, 1.6rem, 2.4rem);
+        @include media-font(550px, 2.4rem, 3.2rem);
       }
     }
 
     &--description {
       @media #{$Tablet} {
-        // padding-right: 2.4rem;
         max-width: percentage(34.8rem / 72.0rem);
       }
 
       @media #{$Desktop} {
-        // padding-right: 4.0rem;
         max-width: percentage(52rem / 108rem);
       }
     }
@@ -43,13 +66,13 @@
 //End of the Text Element
 
   &__sub-header {
-    @extend .header-sub;
+    @extend %header-sub;
+    @include media-bottom-padding(24px,42px);
   }
 
   //Start of the Content Element
   &__content {
     @media #{$Desktop} {
-      // @include media-max-width(Desktop, 10, 9); 
       max-width: percentage(8.96rem / 10.8rem);
       margin: 0 auto;
     }
@@ -76,13 +99,13 @@
 
 //Start of Image Element
   &__img-container {
+    @include media-bottom-padding(24px,48px);
 
     &--gallery {
       margin-bottom: 1.6rem;
 
       @media #{$Tablet} {
         max-width: percentage(2.24rem / 7.2rem);
-        // margin-bottom: 2.4rem; 
         margin-bottom: percentage(0.24rem / 7.2rem);
       }
       @media #{$Desktop} {
@@ -92,22 +115,36 @@
     }
   }
 
-  &__img {
+  &__img{
 
-    //This iis where I will control the height of the about image
-    //Ask about having the image height dynamic!!
-    
-    height: 14.5rem;
+    &--shows {
+      filter: grayscale(1);
+      transition: all 0.5s;
 
-    @media #{$Tablet} {
-      height: 36.2rem;
+      &:hover {
+        filter: grayscale(0);
+        transition: all 0.5s;
+      }
     }
 
-    @media #{$Desktop} {
-      height: 45rem;
+    &--about {
+
+      //This iis where I will control the height of the about image
+      //Ask about having the image height dynamic!!
+      
+      height: 14.5rem;
+
+      @media #{$Tablet} {
+        height: 36.2rem;
+      }
+
+      @media #{$Desktop} {
+        height: 45rem;
+      }
     }
   }
+  
 //End of Image Element
 }
-
+//End of Section components
 

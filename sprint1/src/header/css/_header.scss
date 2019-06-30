@@ -22,8 +22,8 @@
 
   //Header title and media queries
   &__title {
-    @extend .header-hero;
-    @extend .margin--wrapper;
+    @extend %header-hero;
+    @extend %margin--wrapper;
     @include media-max-width(Mobile, 3, 2);
     
     color: #FFF;
@@ -44,9 +44,10 @@
   top:0;
   left:0;
   right:0;
+  z-index: 5;
   background: $nav-bg-fill;
-  @extend .padding--tablet;
-  @extend .padding--desktop;
+  @extend %padding--tablet;
+  @extend %padding--desktop;
 
   &__list {
     display: flex;
