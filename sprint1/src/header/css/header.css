@@ -335,13 +335,7 @@ blockquote {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../../assets/images/hero.jpg");
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 26.3rem;
-  position: relative;
 }
 
 @media only screen and (min-width: 550px) {
@@ -370,6 +364,11 @@ blockquote {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../../assets/images/hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header__title {
