@@ -407,6 +407,10 @@ blockquote {
   }
 }
 
+.section__title {
+  color: #323232;
+}
+
 .section__title--about {
   padding-bottom: 24px;
 }
@@ -455,8 +459,17 @@ blockquote {
   }
 }
 
+.section__text {
+  color: #323232;
+}
+
+.section__text--bold {
+  color: #323232;
+}
+
 .section__text--quote {
   padding-bottom: 32px;
+  color: #323232;
 }
 
 @media only screen and (min-width: 550px) {
@@ -501,6 +514,7 @@ blockquote {
 
 .section__sub-header {
   padding-bottom: 24px;
+  color: #323232;
 }
 
 @media only screen and (min-width: 550px) {
@@ -603,21 +617,5 @@ blockquote {
           filter: grayscale(0);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
-
-.section__img--about {
-  height: 14.5rem;
-}
-
-@media only screen and (min-width: 550px) {
-  .section__img--about {
-    height: 36.2rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section__img--about {
-    height: 45rem;
-  }
 }
 /*# sourceMappingURL=section.css.map */

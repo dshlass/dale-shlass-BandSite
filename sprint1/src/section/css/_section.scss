@@ -20,6 +20,7 @@
   
   &__title {
     @extend %header-section;
+    color: $paragraph-text;
 
     &--about {
       @include media-bottom-padding(24px,48px);
@@ -37,13 +38,16 @@
   //Start of the Text Element
   &__text {
     @extend %paragraph-regular;
+    color: $paragraph-text;
 
     &--bold {
       @extend %paragraph-bold;
+      color: $paragraph-text
     }
 
     &--quote {
       @include media-bottom-padding(32px,40px);
+      color: $paragraph-text;
 
       //Have to manually set font-size, font family and due to cascading effect
       @media #{$Tablet} {
@@ -68,6 +72,7 @@
   &__sub-header {
     @extend %header-sub;
     @include media-bottom-padding(24px,42px);
+    color: $paragraph-text;
   }
 
   //Start of the Content Element
@@ -127,21 +132,21 @@
       }
     }
 
-    &--about {
+    // &--about {
 
-      //This iis where I will control the height of the about image
-      //Ask about having the image height dynamic!!
+    //   //This iis where I will control the height of the about image
+    //   //Ask about having the image height dynamic!!
       
-      height: 14.5rem;
+    //   // max-height: 14.5rem;
 
-      @media #{$Tablet} {
-        height: 36.2rem;
-      }
+    //   // @media #{$Tablet} {
+    //   //   max-height: 36.2rem;
+    //   // }
 
-      @media #{$Desktop} {
-        height: 45rem;
-      }
-    }
+    //   // @media #{$Desktop} {
+    //   //   max-height: 45rem;
+    //   // }
+    // }
   }
   
 //End of Image Element

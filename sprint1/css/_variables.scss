@@ -17,9 +17,6 @@ $column--mobile: 5.4rem;
 $column--tablet: 10rem;
 $column--desktop: 6.8rem;
 
-//Spacing for content
-
-
 //Importing fonts
 @font-face {
     font-family: "AvenirBold";
@@ -102,7 +99,7 @@ $column--desktop: 6.8rem;
   }
 }
 
-//Setting up 
+//Placeholders only used for extending
 %header-hero {
   @include font-family(AvenirBold);
   @include font-line(2.4rem, 3.2rem);

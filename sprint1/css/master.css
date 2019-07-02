@@ -389,15 +389,12 @@ blockquote {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../../assets/images/hero.jpg");
   background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 34.3rem;
+  height: 26.3rem;
   position: relative;
 }
 
@@ -411,6 +408,22 @@ blockquote {
   .header {
     height: 75rem;
   }
+}
+
+.header__hero-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header__title {
@@ -431,11 +444,6 @@ blockquote {
 }
 
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
   background: #323232;
 }
 
@@ -616,6 +624,10 @@ blockquote {
   }
 }
 
+.section__title {
+  color: #323232;
+}
+
 .section__title--about {
   padding-bottom: 24px;
 }
@@ -664,8 +676,17 @@ blockquote {
   }
 }
 
+.section__text {
+  color: #323232;
+}
+
+.section__text--bold {
+  color: #323232;
+}
+
 .section__text--quote {
   padding-bottom: 32px;
+  color: #323232;
 }
 
 @media only screen and (min-width: 550px) {
@@ -710,6 +731,7 @@ blockquote {
 
 .section__sub-header {
   padding-bottom: 24px;
+  color: #323232;
 }
 
 @media only screen and (min-width: 550px) {
@@ -812,22 +834,6 @@ blockquote {
           filter: grayscale(0);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
-
-.section__img--about {
-  height: 14.5rem;
-}
-
-@media only screen and (min-width: 550px) {
-  .section__img--about {
-    height: 36.2rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section__img--about {
-    height: 45rem;
-  }
 }
 
 .footer {

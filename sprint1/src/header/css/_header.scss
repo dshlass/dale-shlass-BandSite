@@ -3,13 +3,11 @@
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // height: 100vh;
-  height: 34.3rem; //Added 80px height due to navigation floating
+  height: 26.3rem; //Added 80px height due to navigation floating
   position:relative;
 
   @media #{$Tablet} {
@@ -20,12 +18,19 @@
     height: 75rem; //Added 80px height due to navigation floating
   }
 
+  &__hero-wrapper {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   //Header title and media queries
   &__title {
     @extend %header-hero;
     @extend %margin--wrapper;
     @include media-max-width(Mobile, 3, 2);
-    
+
     color: #FFF;
 
     @media #{$Tablet} {
@@ -40,11 +45,6 @@
 
 //Nav component
 .nav {
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index: 5;
   background: $nav-bg-fill;
   @extend %padding--tablet;
   @extend %padding--desktop;
