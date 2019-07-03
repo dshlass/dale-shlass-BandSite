@@ -1,0 +1,123 @@
+//Footer component
+//Start of Footer flex container
+.footer {
+  @extend %padding--mobile;
+  @extend %padding--tablet;
+  @extend %padding--desktop;
+  //add padding and margins etc here -extend
+  background: $nav-bg-fill;
+  color: white;
+
+  @include media-top-padding(32px,48px);
+  @include media-bottom-padding(40px, 40px);
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$Tablet} {
+      flex-direction: row; 
+    }
+    
+  }
+
+  &__title {
+    @extend %header-section;
+    @include media-bottom-padding(24px, 56px);
+    
+    @media #{$Tablet} {
+      width: 224px;
+      margin-right: 2.4rem;
+
+    }
+
+    @media #{$Desktop} {
+      width: 252px;
+
+    }
+  }
+
+  }
+//End of Footer flex container
+
+//Start of Social flex container
+  .social {
+    flex-direction: row;
+    //Need to figure out size and spacing of this section
+    &__container {
+      // width: 4rem;
+      align-self: center;
+      margin-right: 2.4rem;
+      @include media-bottom-padding(24px, 56px);
+
+      @media #{$Desktop} {
+        margin-right: 3.2rem;
+      }
+    }
+    
+    &__img {
+      transition: all 0.25s;
+      
+      &:hover {
+        transform: scale(1.25);
+        transition: all 0.25s;
+      }
+    }
+
+    &__logo {
+      width: 120px;
+      // height: 24px;
+      align-self: center;
+
+      display: none;
+      @include media-bottom-padding(24px, 56px);
+
+
+
+      @media #{$Tablet} {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  }
+//End of Social flex container
+
+//Start of Contact flex container
+  .contact {
+    justify-content: space-between;
+    //add bottom padding here
+
+    @media #{$Desktop} {
+      max-width: percentage(80.4rem / 108.0rem);
+    }
+
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 4.0rem;
+      justify-content: space-between;
+      @include media-max-width(550, 2, 1);
+      @include media-max-width(1200, 3, 2);
+    }
+
+    &__text {
+      @extend %paragraph-regular;
+    
+      &--bold {
+        @include font-family(AvenirBold);
+      }
+
+      &--padding {
+        //add padding here
+        padding-bottom: 2.4rem;
+      }
+    }
+
+    &__mail {
+      @extend %paragraph-regular;
+      color: white;
+      word-break: break-all;
+    }
+  }
+//End of Contact flex container
