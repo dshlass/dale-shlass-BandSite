@@ -327,6 +327,11 @@ blockquote {
   margin: 0;
 }
 
+button, input,
+textarea {
+  border: none;
+}
+
 .footer {
   background: #323232;
   color: white;

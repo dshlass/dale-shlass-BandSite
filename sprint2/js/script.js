@@ -34,12 +34,12 @@ class Comment {
   render() {
     return `<div class='comments__flex-container'>
       <div class='comments__img'>
-        <img class='comments__img' src='https://www.fillmurray.com/54/54'>
+        <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
       </div>
       <div class='comments__content'>
-        <div class='content__username-time'>
-          <p>${this.username}</p>
-          <p>${this.date}</p>
+        <div class='content__flex'>
+          <p class="content__username">${this.username}</p>
+          <p class="content__date">${this.date}</p>
         </div>
         <div>
           <p class='content__comment'>${this.comment}</p>
@@ -82,8 +82,8 @@ function addComment(e) {
   e.preventDefault();
   
   //Targets both the name and comment inputs
-  let inputName = document.querySelector('.comments__name');
-  let inputComment = document.querySelector('.comments__comment');
+  let inputName = document.querySelector('.comments__input--name');
+  let inputComment = document.querySelector('.comments__input--comment');
 
   //Reads the input values of both the name and comment inputs
   let inputNameValue = inputName.value;

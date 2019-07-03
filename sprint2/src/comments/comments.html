@@ -8,25 +8,31 @@
   <link rel="stylesheet" href="./css/comments.css">
 </head>
 <body>
-  <div class="comments">
-    <h2 class="comments__title">Join the Conversation</h2>
-      <form action="">
-        <label class='comments__label' for="name">Name:</label>
-        <input type="text" name='name' class='comments__name' placeholder="Jon Doe">
+  <section class="section section--comments">
+    <div class="comments">
+      <h2 class="comments__title">Join the Conversation</h2>
+      <div class="comments__flex">
+        <img class="comments__img--large" src="../../../assets/images/Mohan-muruge.jpg" alt="">
+        <form class="comments__form" action="">
+          <label class='comments__label' for="name">Name</label>
+          <input type="text" name='name' class='comments__input comments__input--name' placeholder="Jon Doe">
 
-        <label class='comments__label' for="comment">Comment:</label>
-        <textarea name="comment" class='comments__comment' rows="5" cols="33">It was a dark and stormy night...</textarea>
+          <label class='comments__label' for="comment">Comment</label>
+          <textarea name="comment" class='comments__input comments__input--comment' rows="5" cols="" placeholder="Add a new comment"></textarea>
 
-        <button class='button comments__submit'>Submit</button>
+          <button class='button comments__submit'>Submit</button>
 
-      </form>
-      
+        </form>
+      </div>
+
       <div class="comments--posted">
         
       </div>
     </div>
-      <script src="../../js/script.js"></script>
+  </section>
+  
 
+  <script src="../../js/script.js"></script>
 </body>
 </html>
 

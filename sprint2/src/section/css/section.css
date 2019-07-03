@@ -348,6 +348,11 @@ blockquote {
   margin: 0;
 }
 
+button, input,
+textarea {
+  border: none;
+}
+
 .section--about {
   padding-top: 32px;
   padding-bottom: 40px;
@@ -404,6 +409,22 @@ blockquote {
 @media only screen and (min-width: 1200px) {
   .section--shows {
     padding-bottom: 16px;
+  }
+}
+
+.section--comments {
+  padding-top: 32px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section--comments {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--comments {
+    padding-top: 48px;
   }
 }
 

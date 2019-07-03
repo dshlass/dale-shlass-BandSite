@@ -1,7 +1,3 @@
-@import '../../../css/normalize';
-@import '../../../css/variables';
-@import '../../section/css/section';
-
   .comments {
     // @extend %padding--mobile;
     margin: 0 auto;
@@ -64,7 +60,7 @@
       @extend %paragraph-bold;
       color: $text-label-fill;
       text-transform: uppercase;
-      
+ 
     }
 
     &__input {
@@ -84,15 +80,10 @@
       &:focus {
         border: 3px solid black;
       }
-      // &--name {
-
-
-      // }
 
       &--comment{
         resize: vertical;
       }
-
     }
 
     //Dynamically generated element by JS
@@ -100,7 +91,6 @@
       display:flex;
       flex-direction: column;
     }
-
 
     &__flex-container {
       padding: 2.4rem 0;;
@@ -119,8 +109,6 @@
       display: flex;
       @extend %paragraph-regular; 
     }
-
-
 
     &__username {
       @extend %paragraph-bold;

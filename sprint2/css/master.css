@@ -259,7 +259,7 @@ template {
   }
 }
 
-.section__title, .footer__title {
+.section__title, .comments__title, .footer__title {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -267,7 +267,7 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .section__title, .footer__title {
+  .section__title, .comments__title, .footer__title {
     font-size: 3.6rem;
     line-height: 4.4rem;
   }
@@ -287,7 +287,7 @@ template {
   }
 }
 
-.section__text, .contact__text, .contact__mail {
+.section__text, .comments__input, .content__flex, .content__date, .content__comment, .contact__text, .contact__mail {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -295,13 +295,13 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .section__text, .contact__text, .contact__mail {
+  .section__text, .comments__input, .content__flex, .content__date, .content__comment, .contact__text, .contact__mail {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
 }
 
-.section__text--bold {
+.comments__submit, .section__text--bold, .comments__label, .content__username {
   font-weight: 500;
   font-family: AvenirDemiBold, Helvetica, sans-serif;
   font-size: 1.6rem;
@@ -346,6 +346,30 @@ template {
   }
 }
 
+.comments__submit {
+  color: white;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background: #323232;
+  padding: 10px 40px;
+}
+
+.comments__submit:hover {
+  background: #0065AD;
+}
+
+@media only screen and (min-width: 550px) {
+  .comments__submit {
+    max-width: 14.8rem;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+
+.comments__flex, .comments__flex-container {
+  border-bottom: 1px solid #E1E1E1;
+}
+
 /************************* General Settings of Elements and Sections...and Stylistic Sugar! *************************/
 html {
   font-size: 62.5%;
@@ -379,6 +403,11 @@ a {
 blockquote {
   padding: 0;
   margin: 0;
+}
+
+button, input,
+textarea {
+  border: none;
 }
 
 .header {
@@ -623,6 +652,22 @@ blockquote {
   }
 }
 
+.section--comments {
+  padding-top: 32px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section--comments {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--comments {
+    padding-top: 48px;
+  }
+}
+
 .section__title {
   color: #323232;
 }
@@ -833,6 +878,145 @@ blockquote {
           filter: grayscale(0);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+.comments {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 550px) {
+  .comments {
+    max-width: 52rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .comments {
+    max-width: 52.8rem;
+  }
+}
+
+.comments__flex {
+  padding-bottom: 3.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comments__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.comments__title {
+  padding-bottom: 4.0rem;
+}
+
+.comments__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comments__img--small {
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comments__img--large {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-top: 2.4rem;
+  margin-right: 1.6rem;
+}
+
+.comments__label {
+  color: #AFAFAF;
+  text-transform: uppercase;
+}
+
+.comments__input {
+  color: #323232;
+  background: #FAFAFA;
+  padding: 15px;
+  border: 1px solid #AFAFAF;
+  border-radius: 4px;
+  margin-bottom: 1.6rem;
+}
+
+.comments__input::-webkit-input-placeholder {
+  color: #323232;
+  opacity: 1;
+}
+
+.comments__input:-ms-input-placeholder {
+  color: #323232;
+  opacity: 1;
+}
+
+.comments__input::-ms-input-placeholder {
+  color: #323232;
+  opacity: 1;
+}
+
+.comments__input::placeholder {
+  color: #323232;
+  opacity: 1;
+}
+
+.comments__input:focus {
+  border: 3px solid black;
+}
+
+.comments__input--comment {
+  resize: vertical;
+}
+
+.comments___content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.comments__flex-container {
+  padding: 2.4rem 0;
+}
+
+.content__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content__username {
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+  margin-right: 1.6rem;
+}
+
+.content__date {
+  margin-left: auto;
+  color: #AFAFAF;
+}
+
+@media only screen and (min-width: 550px) {
+  .content__date {
+    margin-left: 0;
+  }
 }
 
 .footer {
