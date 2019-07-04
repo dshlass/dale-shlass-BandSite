@@ -12,6 +12,11 @@
 //     Clears the input fields after submitting a new comment
 //     Note: you will see this form reflected in the creative mockup as a comment box
 
+//Deeper Dive
+//To add a more realistic feel to the site, try updating the timestamp in the comments section 
+//to reflect when it was posted in a more human-readable format. Using YouTube as an example, 
+//a recently posted comment might display the time posted as "10 minutes ago" or "3 days ago". 
+//Apply this type of timestamp to your data without hardcoding the actual message.
 
 //Creates a Comment class that will dictate how the comments will be structured
 class Comment {
@@ -22,12 +27,70 @@ class Comment {
     this.comment = comment
     
     //If there is no date defined in the arguements, set the date variable to the current date
-    if (date === undefined) {
+    if (!date) {
       let setDate = new Date();
-      this.date = `${setDate.getMonth() + 1}/${setDate.getDate()}/${setDate.getFullYear()}`;
+      // this.date = `${setDate.getMonth() + 1}/${setDate.getDate()}/${setDate.getFullYear()}`;
+
+      this.date = setDate;
     } else {
       this.date = date;
     }
+  }
+  
+  //Maybe use something like this to set the timestamp?
+  get verifyTime() {
+
+    //Setting variables for current date-time
+    let currentYear = pageDate.getYear();
+    let currentMonth = pageDate.getMonth();
+    let currentDay = pageDate.getDay();
+    let currentHour = pageDate.getHours();
+    let currentMinute = pageDate.getMinutes();
+    let currentSecond = pageDate.getSeconds();
+
+    //Setting variables for posted date-time
+    let postedDate = this.date;
+    let postedYear = postedDate.getYear();
+    let postedMonth = postedDate.getMonth();
+    let postedDay = postedDate.getDay();
+    let postedHour = postedDate.getHours();
+    let postedMinute = postedDate.getMinutes();
+    let postedSecond = postedDate.getSeconds();
+
+
+    console.log(currentYear);
+    console.log(postedYear);  
+    //Set conditionals to calculate the elapsed time
+    if (currentYear > postedYear) {
+      console.log(`this post is ${currentYear-postedYear} years old.`);
+            // return `this post is ${currentYear-postedYear} years old.`;
+      if (currentMonth > postedMonth) {
+        console.log(`this post is ${currentMonth - postedMonth} months old.`);
+                // return `this post is ${currentMonth > postedMonth} months old.`;
+      }
+      if (currentDay > postedDay) {
+        console.log(`this post is ${currentDay - postedDay} days old.`);
+                // return `this post is ${currentDay > postedDay} days old.`;
+      }
+      if (currentHours > postedHours) {
+        console.log(`this post is ${currentHour - postedHour} hours old.`);
+                // return `this post is ${currentHours > postedHours} hours old.`;
+      }
+      if (currentMinute > postedMinute) {
+        console.log(`this post is ${currentMinute - postedMinute} minutes old.`);
+                // return `this post is ${currentMinute > postedMinute} minutes old.`;
+      }
+      if (currentSecond > postedSecond) {
+        console.log(`this post is ${currentSecond - postedSecond} seconds old.`);
+                // return `this post is ${currentSecond > postedSecond} seconds old.`;
+      }
+    }
+
+    else if (currentYear === postedYear) {
+      console.log('this is a new post')
+    }
+
+    // return `${currentYear - postedYear}`;
   }
 
   //Render method will dictate how the HTML shows up on the page'
@@ -40,6 +103,7 @@ class Comment {
         <div class='content__flex'>
           <p class="content__username">${this.username}</p>
           <p class="content__date">${this.date}</p>
+
         </div>
         <div>
           <p class='content__comment'>${this.comment}</p>
@@ -54,9 +118,9 @@ class Comment {
 
 //Array with the three sample comments from the mockup
 let commentsArray = [
-                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", '12/18/2018'),
-                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", '12/12/2018'),
-                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", '11/15/2018')
+                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
+                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
+                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
                     ];
 
  //Function that displays the array                    
@@ -117,6 +181,9 @@ let submitButton = document.querySelector('.comments__submit');
 
 //Adds an event listener to the form submit button
 submitButton.addEventListener('click', addComment);
+
+//Getting time of the page
+let pageDate = new Date();
 
 //This will display the sample comments in the commentsArray when the page loads.
 displayComment();
