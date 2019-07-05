@@ -41,56 +41,79 @@ class Comment {
   get verifyTime() {
 
     //Setting variables for current date-time
-    let currentYear = pageDate.getYear();
-    let currentMonth = pageDate.getMonth();
+    let currentYear = pageDate.getFullYear();
+    let currentMonth = pageDate.getMonth() + 1;
     let currentDay = pageDate.getDay();
     let currentHour = pageDate.getHours();
     let currentMinute = pageDate.getMinutes();
     let currentSecond = pageDate.getSeconds();
-
+    // console.log(currentMinute);
     //Setting variables for posted date-time
     let postedDate = this.date;
-    let postedYear = postedDate.getYear();
-    let postedMonth = postedDate.getMonth();
+    let postedYear = postedDate.getFullYear();
+    let postedMonth = postedDate.getMonth() + 1;
     let postedDay = postedDate.getDay();
     let postedHour = postedDate.getHours();
     let postedMinute = postedDate.getMinutes();
     let postedSecond = postedDate.getSeconds();
 
 
-    console.log(currentYear);
-    console.log(postedYear);  
+    if (currentYear >  postedYear) {
+      let difference = currentYear - postedYear;
+      let monthDiff = difference*12 + currentMonth - postedMonth;
+      // console.log(monthDiff);
+      if(monthDiff >= 12) {
+        return `${difference} years old`
+      }
+      else if(monthDiff > 1 && monthDiff < 12 )  {
+        return `${monthDiff} months old`;
+      }
+    }
+
+    //
+    if (currentYear ===  postedYear) {
+      
+      let monthDiff = currentMonth - postedMonth;
+      let dayDiff = Math.floor((pageDate - postedDate) / 1000 / 60 / 60 / 24);
+      let hourDiff = Math.floor((pageDate - postedDate) / 1000 / 60 / 60);
+      let minuteDiff = Math.floor((pageDate - postedDate) / 1000 / 60);
+      let secondDiff = Math.floor((pageDate - postedDate) / 1000);
+      console.log(minuteDiff);
+      console.log(secondDiff);
+
+      if (dayDiff >= 30) {
+        return `${monthDiff} months ago`;
+      }
+      else if (dayDiff > 0 && dayDiff < 30) {
+        return `${dayDiff} days ago`;
+      }
+      else if (dayDiff === 0) {
+        if (hourDiff > 0 ) {
+          if (hourDiff === 0) {
+            if (minuteDiff === 0) {
+              return `${secondDiff} seconds ago`
+            }
+            return `${minuteDiff} minutes ago`;
+          }
+          return `${hourDiff} hours ago`;
+        } 
+      }
+    }
+
+//  else if (dayDiff === 0) {
+//         if (hourDiff > 0 ) {
+//           if (hourDiff === 0) {
+//             if (minuteDiff === 0) {
+//               return `${secondDiff} seconds ago`
+//             }
+//             return `${minuteDiff} minutes ago`;
+//           }
+//           return `${hourDiff} hours ago`;
+//         } 
+//       }
+
     //Set conditionals to calculate the elapsed time
-    if (currentYear > postedYear) {
-      console.log(`this post is ${currentYear-postedYear} years old.`);
-            // return `this post is ${currentYear-postedYear} years old.`;
-      if (currentMonth > postedMonth) {
-        console.log(`this post is ${currentMonth - postedMonth} months old.`);
-                // return `this post is ${currentMonth > postedMonth} months old.`;
-      }
-      if (currentDay > postedDay) {
-        console.log(`this post is ${currentDay - postedDay} days old.`);
-                // return `this post is ${currentDay > postedDay} days old.`;
-      }
-      if (currentHours > postedHours) {
-        console.log(`this post is ${currentHour - postedHour} hours old.`);
-                // return `this post is ${currentHours > postedHours} hours old.`;
-      }
-      if (currentMinute > postedMinute) {
-        console.log(`this post is ${currentMinute - postedMinute} minutes old.`);
-                // return `this post is ${currentMinute > postedMinute} minutes old.`;
-      }
-      if (currentSecond > postedSecond) {
-        console.log(`this post is ${currentSecond - postedSecond} seconds old.`);
-                // return `this post is ${currentSecond > postedSecond} seconds old.`;
-      }
-    }
-
-    else if (currentYear === postedYear) {
-      console.log('this is a new post')
-    }
-
-    // return `${currentYear - postedYear}`;
+  
   }
 
   //Render method will dictate how the HTML shows up on the page'
@@ -115,10 +138,11 @@ class Comment {
 
 //Sets the current date of the page
 // let date = new Date();
+//2018, 11, 18
 
 //Array with the three sample comments from the mockup
 let commentsArray = [
-                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
+                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2019, 6, 5)),
                       new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
                       new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
                     ];
