@@ -24,96 +24,82 @@ class Comment {
   //Creates the values stored within each new Comment
   constructor(username, comment, date) {
     this.username = username,
-    this.comment = comment
-    
-    //If there is no date defined in the arguements, set the date variable to the current date
-    if (!date) {
-      let setDate = new Date();
-      // this.date = `${setDate.getMonth() + 1}/${setDate.getDate()}/${setDate.getFullYear()}`;
-
-      this.date = setDate;
-    } else {
-      this.date = date;
-    }
+    this.comment = comment,
+    this.date = date
   }
   
   //Maybe use something like this to set the timestamp?
   get verifyTime() {
 
     //Setting variables for current date-time
+    let pageDate = new Date();
     let currentYear = pageDate.getFullYear();
     let currentMonth = pageDate.getMonth() + 1;
-    let currentDay = pageDate.getDay();
-    let currentHour = pageDate.getHours();
-    let currentMinute = pageDate.getMinutes();
-    let currentSecond = pageDate.getSeconds();
-    // console.log(currentMinute);
+
     //Setting variables for posted date-time
     let postedDate = this.date;
     let postedYear = postedDate.getFullYear();
     let postedMonth = postedDate.getMonth() + 1;
-    let postedDay = postedDate.getDay();
-    let postedHour = postedDate.getHours();
-    let postedMinute = postedDate.getMinutes();
-    let postedSecond = postedDate.getSeconds();
 
-
+    //Set conditionals to calculate the elapsed time
+   //Checks to see if this post was posted this year or last 
     if (currentYear >  postedYear) {
-      let difference = currentYear - postedYear;
-      let monthDiff = difference*12 + currentMonth - postedMonth;
-      // console.log(monthDiff);
-      if(monthDiff >= 12) {
-        return `${difference} years old`
+
+      let yearDiff = currentYear - postedYear;
+      //monthDiff will add 12 months to current Month and uses the difference
+      //mainly used if a post was posted in december 2018 vs january 2019
+      //this would equare to 1 year difference, but in reality it is 1 month.
+      let monthDiff = ((yearDiff * 12) + currentMonth) - postedMonth;
+
+      //Evaluates into years 
+      if (monthDiff >= 12) {
+        return `${yearDiff} years old`
       }
-      else if(monthDiff > 1 && monthDiff < 12 )  {
+      //Evaluates into months
+      else if (monthDiff > 1 && monthDiff < 12 )  {
         return `${monthDiff} months old`;
       }
     }
 
-    //
+    //If the post is within this current year
     if (currentYear ===  postedYear) {
       
+      //Setting variables for the differences between months, days, hours, minutes, seconds
       let monthDiff = currentMonth - postedMonth;
-      let dayDiff = Math.floor((pageDate - postedDate) / 1000 / 60 / 60 / 24);
-      let hourDiff = Math.floor((pageDate - postedDate) / 1000 / 60 / 60);
-      let minuteDiff = Math.floor((pageDate - postedDate) / 1000 / 60);
-      let secondDiff = Math.floor((pageDate - postedDate) / 1000);
-      console.log(minuteDiff);
-      console.log(secondDiff);
+      let dayDiff = Math.floor(Math.abs(pageDate - postedDate) / 1000 / 60 / 60 / 24);
+      let hourDiff = Math.floor(Math.abs(pageDate - postedDate) / 1000 / 60 / 60);
+      let minuteDiff = Math.floor(Math.abs(pageDate - postedDate) / 1000 / 60);
+      let secondDiff = Math.floor(Math.abs(pageDate - postedDate) / 1000);
 
+      //Using 30 days as the cutoff for months old
       if (dayDiff >= 30) {
         return `${monthDiff} months ago`;
       }
-      else if (dayDiff > 0 && dayDiff < 30) {
+
+      //If within the last 30 days, it is days old
+      if (dayDiff > 0 && dayDiff < 30) {
         return `${dayDiff} days ago`;
       }
+
+      //If the post is within the current day
       else if (dayDiff === 0) {
-        if (hourDiff > 0 ) {
-          if (hourDiff === 0) {
-            if (minuteDiff === 0) {
-              return `${secondDiff} seconds ago`
-            }
-            return `${minuteDiff} minutes ago`;
-          }
+        
+        //If the post was posted more than 1 hour ago display in hours
+        if (secondDiff >= 36000 ) {
           return `${hourDiff} hours ago`;
-        } 
+        }
+        
+        //If the post was posted more than 1 minute ago but less than an hour ago display in minutes
+        else if (secondDiff > 60 && secondDiff < 36000 ) {
+          return `${minuteDiff} minutes ago`;
+        }
+
+        //If the post was posted less than a minute ago display in seconds
+        else if (secondDiff < 60 ) {
+          return `${secondDiff} seconds ago`;
+        }
       }
-    }
-
-//  else if (dayDiff === 0) {
-//         if (hourDiff > 0 ) {
-//           if (hourDiff === 0) {
-//             if (minuteDiff === 0) {
-//               return `${secondDiff} seconds ago`
-//             }
-//             return `${minuteDiff} minutes ago`;
-//           }
-//           return `${hourDiff} hours ago`;
-//         } 
-//       }
-
-    //Set conditionals to calculate the elapsed time
-  
+    } 
   }
 
   //Render method will dictate how the HTML shows up on the page'
@@ -125,7 +111,7 @@ class Comment {
       <div class='comments__content'>
         <div class='content__flex'>
           <p class="content__username">${this.username}</p>
-          <p class="content__date">${this.date}</p>
+          <p class="content__date">${this.verifyTime}</p>
 
         </div>
         <div>
@@ -136,13 +122,9 @@ class Comment {
   }
 }
 
-//Sets the current date of the page
-// let date = new Date();
-//2018, 11, 18
-
 //Array with the three sample comments from the mockup
 let commentsArray = [
-                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2019, 6, 5)),
+                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
                       new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
                       new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
                     ];
@@ -160,7 +142,6 @@ function displayComment() {
 
   //The display array is then inputted into the innerHTML of the target div
   test.innerHTML = display;
-
 }
 
 //Function that handles the addition of a new comment
@@ -185,8 +166,10 @@ function addComment(e) {
   //Adds the comment
   else {
     
+    let date = new Date()
+
     //Creates a new comment
-    const comment = new Comment(inputNameValue, inputCommentValue);
+    const comment = new Comment(inputNameValue, inputCommentValue, date);
     
     //Pushes new comment into the start of the commentsArray
     commentsArray.unshift(comment);
@@ -205,9 +188,6 @@ let submitButton = document.querySelector('.comments__submit');
 
 //Adds an event listener to the form submit button
 submitButton.addEventListener('click', addComment);
-
-//Getting time of the page
-let pageDate = new Date();
 
 //This will display the sample comments in the commentsArray when the page loads.
 displayComment();
