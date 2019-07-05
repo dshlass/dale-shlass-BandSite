@@ -1,4 +1,3 @@
-
 //Header component
 //Possibly have height restrictions as noted in requirements.
 .header {
@@ -93,24 +92,9 @@
         min-width: 80px;
       }
     }
-
-
-    &--hover:hover::after {
-      position: absolute;
-      content: "";
-      left:0;
-      right: 0;
-      top: 90%;
-      bottom: 0;
-      background: #FAFAFA;
-
-      @media #{$Tablet} {
-        top: 95%;
-      }   
-    }
   }
 
-   &__logo {
+  &__logo {
     width: 100px; 
     margin: 0 auto;
   }
@@ -123,11 +107,11 @@
     flex:1;
     padding: 8px;
     color: #AFAFAF;
-    position: relative;
-    z-index: 5;
+    border-bottom: 4px solid $nav-bg-fill;
 
     &:hover {
-      color: #FAFAFA
+      color: #FAFAFA;
+      border-bottom: 4px solid #FFF;
     }
 
     @media #{$Tablet} {
