@@ -112,7 +112,6 @@ class Comment {
         <div class='content__flex'>
           <p class="content__username">${this.username}</p>
           <p class="content__date">${this.verifyTime}</p>
-
         </div>
         <div>
           <p class='content__comment'>${this.comment}</p>
