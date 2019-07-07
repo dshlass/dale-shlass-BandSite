@@ -1,7 +1,6 @@
 @import '../../../css/normalize';
 @import '../../../css/variables';
 //Header component
-//Possibly have height restrictions as noted in requirements.
 .header {
   display: flex;
   flex-direction: column;
@@ -111,7 +110,7 @@
     color: #AFAFAF;
     border-bottom: 4px solid $nav-bg-fill;
 
-    &:hover {
+    &--hover:hover {
       color: #FAFAFA;
       border-bottom: 4px solid #FFF;
     }
