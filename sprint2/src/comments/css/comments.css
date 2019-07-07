@@ -333,7 +333,7 @@ template {
   }
 }
 
-.comments__flex, .comments__flex-container {
+.comments__flex, .comments__posted-comment {
   border-bottom: 1px solid #E1E1E1;
 }
 
@@ -704,12 +704,6 @@ textarea {
   padding-bottom: 4.0rem;
 }
 
-.comments__flex-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .comments__img--small {
   width: 36px;
   border-radius: 50%;
@@ -766,7 +760,14 @@ textarea {
   resize: vertical;
 }
 
-.comments___content {
+.comments__posted-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2.4rem 0;
+}
+
+.content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -774,10 +775,6 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.comments__flex-container {
-  padding: 2.4rem 0;
 }
 
 .content__flex {

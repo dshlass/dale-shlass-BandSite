@@ -95,20 +95,26 @@ class Comment {
         }
 
         //If the post was posted less than a minute ago display in seconds
-        else if (secondDiff < 60 ) {
+        else if (secondDiff > 0 && secondDiff < 60 ) {
           return `${secondDiff} seconds ago`;
+        }
+       
+        //displays just now the newest post.
+       else if (secondDiff === 0) {
+          return `just now`;
         }
       }
     } 
   }
 
-  //Render method will dictate how the HTML shows up on the page'
+  //Render method will dictate how the HTML shows up on the page
+  //Consider using the append child and text node creation
   render() {
-    return `<div class='comments__flex-container'>
+    return `<div class='comments__posted-comment'>
       <div class='comments__img'>
         <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
       </div>
-      <div class='comments__content'>
+      <div class='content'>
         <div class='content__flex'>
           <p class="content__username">${this.username}</p>
           <p class="content__date">${this.verifyTime}</p>
@@ -137,6 +143,7 @@ function displayComment() {
   //Envokes the render method on each comment object inside of the commentsArray
   //Each render method is stored as an element of a new array called display
   //The values of display are then joined into a string and removes the ',' between them
+  //This will be removed if the render method turns into the append child etc
   let display = commentsArray.map(element => element.render()).join('');
 
   //The display array is then inputted into the innerHTML of the target div

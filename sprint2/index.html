@@ -83,29 +83,24 @@
       </ul> <!--End of Gallery section-->
     </section> <!--End of Shows section-->
 
-    <section class="section section--comments">
-    <div class="comments">
-      <h2 class="comments__title">Join the Conversation</h2>
-      <div class="comments__flex">
-        <img class="comments__img--large" src="../../../assets/images/Mohan-muruge.jpg" alt="">
-        <form class="comments__form" action="">
-          <label class='comments__label' for="name">Name</label>
-          <input type="text" name='name' class='comments__input comments__input--name' placeholder="Jon Doe">
-
-          <label class='comments__label' for="comment">Comment</label>
-          <textarea name="comment" class='comments__input comments__input--comment' rows="5" cols="" placeholder="Add a new comment"></textarea>
-
-          <button class='button comments__submit'>Submit</button>
-
-        </form>
-      </div>
-
-      <div class="comments--posted">
-        
-      </div>
-    </div>
-  </section>
- 
+    <section class="section section--comments"> <!--Start of the Comments section-->
+      <div class="comments"> <!-- Start of Comment center wrapper-->
+        <h2 class="comments__title">Join the Conversation</h2>
+        <div class="comments__flex"> <!--Start of the flex container for new comments-->
+          <img class="comments__img--large" src="../../../assets/images/Mohan-muruge.jpg" alt="">
+          <form class="comments__form" action=""> <!--Start of the input form-->
+            <label class='comments__label' for="name">Name</label> 
+            <input type="text" name='name' class='comments__input comments__input--name' placeholder="Mohan Muruge"> <!--Input for the name-->
+            <label class='comments__label' for="comment">Comment</label>
+            <textarea name="comment" class='comments__input comments__input--comment' rows="5" cols="" placeholder="Add a new comment"></textarea> <!--Input for the comment-->
+            <button class='button comments__submit'>Submit</button>
+          </form> <!--End of the input form-->
+        </div> <!--End of the flex container for new comments-->
+        <div class="comments--posted">
+          <!-- Javascript inserted into this div -->
+        </div>
+      </div> <!-- Start of Comment center wrapper-->
+    </section> <!--End of the Comments section-->
   </main>
 
   <footer class="footer"> 
@@ -157,6 +152,7 @@
     </ul> <!--End of Middle footer flex container-->
     <p class="contact__text">Copyright The Bees Knees &COPY; 2018 All Rights Reserved</p>
   </footer>
+  
   <script src="./js/script.js"></script>
 
 </body>
