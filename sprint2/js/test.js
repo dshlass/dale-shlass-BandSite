@@ -107,24 +107,54 @@ class Comment {
     } 
   }
 
-  //Render method will dictate how the HTML shows up on the page
-  //Consider using the append child and text node creation
   render() {
-    return `<div class='comments__posted-comment'>
-      <div class='comments__img'>
-        <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
-      </div>
-      <div class='content'>
-        <div class='content__flex'>
-          <p class="content__username">${this.username}</p>
-          <p class="content__date">${this.verifyTime}</p>
-        </div>
-        <div>
-          <p class='content__comment'>${this.comment}</p>
-        </div>
-      </div>
-    </div>`
+    //Creates all of the HTML elements and assignes classnames
+    let postedComment = document.createElement('div');
+    postedComment.className = "comments__posted-comment";
+
+    let commentImgWrapper = document.createElement('div');
+    commentImgWrapper.className = 'comments__img';
+    
+    let commentImg = document.createElement('img');
+    commentImg.className = 'comments__img--small';
+    
+    let contentWrapper = document.createElement('div');
+    contentWrapper.className = 'content';
+    
+    let contentFlex = document.createElement('div');
+    contentFlex.className = 'content__flex';
+
+    let contentUsername = document.createElement('p');
+    contentUsername.className = 'content__username';
+
+    let contentDate = document.createElement('p');
+    contentDate.className = 'content__date';
+
+    let contentCommentWrapper = document.createElement('div');
+    let contentComment = document.createElement('p');
+    contentComment.className = 'content__comment';
+
+    postedComment.appendChild(commentImgWrapper);
+    postedComment.appendChild(contentWrapper);
+
+    commentImgWrapper.appendChild(commentImg);
+    commentImg.src = 'https://www.fillmurray.com/54/54'
+    
+    contentWrapper.appendChild(contentFlex);
+    contentWrapper.appendChild(contentCommentWrapper);
+
+    contentFlex.appendChild(contentUsername);
+    contentUsername.innerHTML = this.username;
+    
+    contentFlex.appendChild(contentDate);
+    contentDate.innerHTML = this.verifyTime;
+
+    contentCommentWrapper.appendChild(contentComment);
+    contentComment.innerHTML = this.comment;
+
+    return postedComment;
   }
+
 }
 
 //Array with the three sample comments from the mockup
@@ -135,19 +165,18 @@ let commentsArray = [
                     ];
 
  //Function that displays the array                    
-function displayComment() {
+function displayComment(comment) {
+  
+  //Clears the displayed area
+    commentArea.innerHTML = '';
+  
+  //Pushes new comment into the start of the commentsArray
+  commentsArray.unshift(comment);
 
-  //Targets the div that will be the comment section
-  let test = document.querySelector('.comments--posted');
-
-  //Envokes the render method on each comment object inside of the commentsArray
-  //Each render method is stored as an element of a new array called display
-  //The values of display are then joined into a string and removes the ',' between them
-  //This will be removed if the render method turns into the append child etc
-  let display = commentsArray.map(element => element.render()).join('');
-
-  //The display array is then inputted into the innerHTML of the target div
-  test.innerHTML = display;
+  //appends comments array with the rendered html
+  commentsArray.forEach(element => {
+    commentArea.appendChild(element.render());
+  });
 }
 
 //Function that handles the addition of a new comment
@@ -176,12 +205,9 @@ function addComment(e) {
 
     //Creates a new comment
     const comment = new Comment(inputNameValue, inputCommentValue, date);
-    
-    //Pushes new comment into the start of the commentsArray
-    commentsArray.unshift(comment);
 
     //Calls a function that displays the commentsArray
-    displayComment();
+    displayComment(comment);
 
     //Clears the input and comment values
     inputName.value = '';
@@ -195,5 +221,10 @@ let submitButton = document.querySelector('.comments__submit');
 //Adds an event listener to the form submit button
 submitButton.addEventListener('click', addComment);
 
+  //Targets the div that will be the comment section
+  let commentArea = document.querySelector('.comments--posted');
+
 //This will display the sample comments in the commentsArray when the page loads.
-displayComment();
+  commentsArray.forEach(element => {
+    commentArea.appendChild(element.render());
+});
