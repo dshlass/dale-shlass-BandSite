@@ -447,8 +447,8 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../../assets/images/hero.jpg");
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -633,22 +633,6 @@ textarea {
 @media only screen and (min-width: 1200px) {
   .section--shows {
     padding-bottom: 16px;
-  }
-}
-
-.section--comments {
-  padding-top: 32px;
-}
-
-@media only screen and (min-width: 550px) {
-  .section--comments {
-    padding-top: 40px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section--comments {
-    padding-top: 48px;
   }
 }
 

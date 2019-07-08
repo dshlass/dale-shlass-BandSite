@@ -412,22 +412,6 @@ textarea {
   }
 }
 
-.section--comments {
-  padding-top: 32px;
-}
-
-@media only screen and (min-width: 550px) {
-  .section--comments {
-    padding-top: 40px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .section--comments {
-    padding-top: 48px;
-  }
-}
-
 .section__title {
   color: #323232;
 }

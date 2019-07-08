@@ -20,10 +20,6 @@
 
     background: #FAFAFA;
   }
-
-  &--comments {
-    @include media-top-padding(32px,48px);
-  }
   
   &__title {
     @extend %header-section;
