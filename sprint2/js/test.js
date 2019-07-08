@@ -154,7 +154,6 @@ class Comment {
 
     return postedComment;
   }
-
 }
 
 //Array with the three sample comments from the mockup

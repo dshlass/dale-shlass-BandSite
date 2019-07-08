@@ -259,36 +259,22 @@ template {
   }
 }
 
+.header__hero-wrapper {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 @media only screen and (min-width: 550px) {
-  .nav {
+  .header__hero-wrapper, .nav {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .nav {
+  .header__hero-wrapper, .nav {
     padding-left: 12.5%;
     padding-right: 12.5%;
-  }
-}
-
-.header__title {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-@media only screen and (min-width: 550px) {
-  .header__title {
-    margin-left: 3.125%;
-    margin-right: 3.125%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .header__title {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
   }
 }
 

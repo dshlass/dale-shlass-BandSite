@@ -1,0 +1,46 @@
+@import '../../css/master.scss';
+
+.header {
+  height: 55.2rem; //Added 80px height to include the navigation
+
+  @media #{$Tablet} {
+    height: 75rem; //Added 80px height to include the navigation
+  }
+
+  &__shows-hero-wrapper {
+    @extend .header__hero-wrapper;
+    background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+    justify-content: flex-start;
+  }
+
+  &__title{
+    margin-bottom: 6.4rem;
+    // @include font-line(3.6rem, 4.4rem);
+
+    @include media-max-width(Mobile, 4, 3);
+
+    @media #{$Tablet} {
+      @include media-max-width(Tablet, 5, 4);
+    }
+
+    @media #{$Desktop} {
+      @include media-max-width(Desktop, 7, 6);
+    }
+
+    &--album {
+      @extend %header-sub;
+      @include font-family(AvenirRegular);
+
+      color: #FFF;
+      margin-bottom: 2.4rem;
+      margin-top: 6.4rem;
+    }
+  }
+  
+  &__media-player {
+    max-height: 14.6rem;
+  }
+
+
+
+}

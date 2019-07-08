@@ -273,7 +273,7 @@ template {
   }
 }
 
-.section__sub-header {
+.section__sub-header, .header__title--album {
   font-weight: 600;
   font-family: AvenirBold, Helvetica, sans-serif;
   font-size: 1.4rem;
@@ -281,7 +281,7 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .section__sub-header {
+  .section__sub-header, .header__title--album {
     font-size: 2.4rem;
     line-height: 3.2rem;
   }
@@ -308,20 +308,20 @@ template {
   line-height: 2.4rem;
 }
 
-.header__hero-wrapper, .section, .footer {
+.header__hero-wrapper, .header__shows-hero-wrapper, .section, .footer {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .header__hero-wrapper, .nav, .section, .footer {
+  .header__hero-wrapper, .header__shows-hero-wrapper, .nav, .section, .footer {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .header__hero-wrapper, .nav, .section, .footer {
+  .header__hero-wrapper, .header__shows-hero-wrapper, .nav, .section, .footer {
     padding-left: 12.5%;
     padding-right: 12.5%;
   }
@@ -414,7 +414,7 @@ textarea {
   }
 }
 
-.header__hero-wrapper {
+.header__hero-wrapper, .header__shows-hero-wrapper {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -1156,4 +1156,51 @@ textarea {
   color: white;
   word-break: break-all;
 }
-/*# sourceMappingURL=master.css.map */
+
+.header {
+  height: 55.2rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .header {
+    height: 75rem;
+  }
+}
+
+.header__shows-hero-wrapper {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../assets/images/shows-hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header__title {
+  margin-bottom: 6.4rem;
+  max-width: 28.8rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .header__title {
+    max-width: 59.6rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header__title {
+    max-width: 62rem;
+  }
+}
+
+.header__title--album {
+  font-weight: 400;
+  font-family: AvenirRegular, Helvetica, sans-serif;
+  color: #FFF;
+  margin-bottom: 2.4rem;
+  margin-top: 6.4rem;
+}
+
+.header__media-player {
+  max-height: 14.6rem;
+}
+/*# sourceMappingURL=shows.css.map */
