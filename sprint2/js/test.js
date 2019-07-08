@@ -82,7 +82,7 @@ class Comment {
       }
 
       //If the post is within the current day
-      else if (dayDiff === 0) {
+      else if (!dayDiff) {
         
         //If the post was posted more than 1 hour ago display in hours
         if (secondDiff >= 36000 ) {
@@ -100,7 +100,7 @@ class Comment {
         }
 
         //displays just now the newest post.
-        else if (secondDiff === 0) {
+        else if (!secondDiff) {
           return `just now`;
         }
       }
@@ -138,7 +138,7 @@ class Comment {
     postedComment.appendChild(contentWrapper);
 
     commentImgWrapper.appendChild(commentImg);
-    commentImg.src = 'https://www.fillmurray.com/54/54'
+    commentImg.src = 'https://www.fillmurray.com/54/54';
     
     contentWrapper.appendChild(contentFlex);
     contentWrapper.appendChild(contentCommentWrapper);
