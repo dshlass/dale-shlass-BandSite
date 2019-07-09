@@ -189,16 +189,17 @@ function addComment(e) {
   let inputComment = document.querySelector('.comments__input--comment');
 
   //Reads the input values of both the name and comment inputs
-  let inputNameValue = inputName.value;
+  let inputNameValue = inputName.value || 'Anonymous';
   let inputCommentValue = inputComment.value;
 
   //Error popup when you submit a comment without either a name or comment or both
-  if (!inputName.value || !inputComment.value) {
-    window.setTimeout(window.alert, 10, 'Please input both your name and a comment');  
+  if (!inputCommentValue) {
+    window.alert('Please leave a comment');  
   }
 
   //Adds the comment
   else {
+    console.log(typeof inputCommentValue);
     
     let date = new Date()
 
