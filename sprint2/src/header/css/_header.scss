@@ -45,6 +45,33 @@
       @include media-max-width(Desktop, 6, 5);
     }
   }
+  
+  &__shows-hero-wrapper {
+      @extend %padding--mobile;
+      @extend %padding--tablet;
+      @extend %padding--desktop;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+    
+      display: flex;
+      flex: 1;
+          padding-bottom: 16rem;
+
+    }
+
+
+  &--shows {
+    display: flex;
+    flex-direction: column;
+    height: 55.2rem; //Added 80px height to include the navigation
+
+    @media #{$Tablet} {
+      height: 75rem; //Added 80px height to include the navigation
+    }
+  }
 }
 
 //Nav component

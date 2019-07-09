@@ -192,7 +192,7 @@ function addComment(e) {
   let inputNameValue = inputName.value || 'Anonymous';
   let inputCommentValue = inputComment.value;
 
-  //Error popup when you submit a comment without either a name or comment or both
+  //Error popup when you submit with the comment box empty
   if (!inputCommentValue) {
     window.alert('Please leave a comment');  
   }

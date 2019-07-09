@@ -1,46 +1,58 @@
-@import '../../css/master.scss';
+@import '../../css/normalize';
 
-.header {
-  height: 55.2rem; //Added 80px height to include the navigation
+//Imports my variables, mixins and classes that extended into other files
+@import '../../css/variables';
 
-  @media #{$Tablet} {
-    height: 75rem; //Added 80px height to include the navigation
-  }
+//Imports the header specific styles
+@import '../../src/header/css/header';
 
-  &__shows-hero-wrapper {
-    @extend .header__hero-wrapper;
-    background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
-    justify-content: flex-start;
-  }
+//Imports the footer specific styles 
+@import '../../src/footer/css/footer';
+.shows {
 
-  &__title{
-    margin-bottom: 6.4rem;
-    // @include font-line(3.6rem, 4.4rem);
-
-    @include media-max-width(Mobile, 4, 3);
-
-    @media #{$Tablet} {
-      @include media-max-width(Tablet, 5, 4);
+    &__flex-wrapper {
+      @media #{$Desktop} {
+        display: flex;
+        align-items: flex-end;
+      }
     }
 
-    @media #{$Desktop} {
-      @include media-max-width(Desktop, 7, 6);
+    &__title {
+      @extend %header-hero;
+      // @include font-line(3.6rem, 4.4rem);
+      padding-bottom: 6.4rem;
+
+      @include media-max-width(Mobile, 4, 3);
+
+      @media #{$Tablet} {
+        @include media-max-width(Tablet, 5, 4);
+      }
+
+      @media #{$Desktop} {
+        max-width: 50%;
+        padding-bottom: 0;
+      }
+
+      &--album {
+        @extend %header-sub;
+        @include font-family(AvenirDemiBold);
+        margin-top: 6.4rem;
+        margin-bottom: 2.4rem;
+
+        color: #FFF;
+        // margin-bottom: 2.4rem;
+      }
     }
+    
+    &__media-player {
+      height: 14.6rem;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      // flex: 1;
 
-    &--album {
-      @extend %header-sub;
-      @include font-family(AvenirRegular);
-
-      color: #FFF;
-      margin-bottom: 2.4rem;
-      margin-top: 6.4rem;
+      @media #{$Tablet} {
+        max-width: 436px;
+      }
     }
   }
-  
-  &__media-player {
-    max-height: 14.6rem;
-  }
-
-
-
-}
