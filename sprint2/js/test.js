@@ -107,56 +107,73 @@ class Comment {
     } 
   }
 
-  render() {
-    //Creates all of the HTML elements and assignes classnames
-    let postedComment = document.createElement('div');
-    postedComment.className = "comments__posted-comment";
+  // render() {
+  //   //Creates all of the HTML elements and assignes classnames
+  //   let postedComment = document.createElement('div');
+  //   postedComment.className = "comments__posted-comment";
 
-    let commentImgWrapper = document.createElement('div');
-    commentImgWrapper.className = 'comments__img';
+  //   let commentImgWrapper = document.createElement('div');
+  //   commentImgWrapper.className = 'comments__img';
     
-    let commentImg = document.createElement('img');
-    commentImg.className = 'comments__img--small';
+  //   let commentImg = document.createElement('img');
+  //   commentImg.className = 'comments__img--small';
     
-    let contentWrapper = document.createElement('div');
-    contentWrapper.className = 'content';
+  //   let contentWrapper = document.createElement('div');
+  //   contentWrapper.className = 'content';
     
-    let contentFlex = document.createElement('div');
-    contentFlex.className = 'content__flex';
+  //   let contentFlex = document.createElement('div');
+  //   contentFlex.className = 'content__flex';
 
-    let contentUsername = document.createElement('p');
-    contentUsername.className = 'content__username';
+  //   let contentUsername = document.createElement('p');
+  //   contentUsername.className = 'content__username';
 
-    let contentDate = document.createElement('p');
-    contentDate.className = 'content__date';
+  //   let contentDate = document.createElement('p');
+  //   contentDate.className = 'content__date';
 
-    let contentCommentWrapper = document.createElement('div');
-    let contentComment = document.createElement('p');
-    contentComment.className = 'content__comment';
+  //   let contentCommentWrapper = document.createElement('div');
+  //   let contentComment = document.createElement('p');
+  //   contentComment.className = 'content__comment';
 
-    postedComment.appendChild(commentImgWrapper);
-    postedComment.appendChild(contentWrapper);
+  //   postedComment.appendChild(commentImgWrapper);
+  //   postedComment.appendChild(contentWrapper);
 
-    commentImgWrapper.appendChild(commentImg);
-    commentImg.src = 'https://www.fillmurray.com/54/54';
+  //   commentImgWrapper.appendChild(commentImg);
+  //   commentImg.src = 'https://www.fillmurray.com/54/54';
     
-    contentWrapper.appendChild(contentFlex);
-    contentWrapper.appendChild(contentCommentWrapper);
+  //   contentWrapper.appendChild(contentFlex);
+  //   contentWrapper.appendChild(contentCommentWrapper);
 
-    contentFlex.appendChild(contentUsername);
-    contentUsername.innerHTML = this.username;
+  //   contentFlex.appendChild(contentUsername);
+  //   contentUsername.innerHTML = this.username;
     
-    contentFlex.appendChild(contentDate);
-    contentDate.innerHTML = this.verifyTime;
+  //   contentFlex.appendChild(contentDate);
+  //   contentDate.innerHTML = this.verifyTime;
 
-    contentCommentWrapper.appendChild(contentComment);
-    contentComment.innerHTML = this.comment;
+  //   contentCommentWrapper.appendChild(contentComment);
+  //   contentComment.innerHTML = this.comment;
 
-    return postedComment;
+  //   return postedComment;
+  // }
+    //Method of Comment class
+    render() {
+    return `<div class='comments__posted-comment'>
+      <div class='comments__img'>
+        <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
+      </div>
+      <div class='content'>
+        <div class='content__flex'>
+          <p class="content__username">${this.username}</p>
+          <p class="content__date">${this.verifyTime}</p>
+        </div>
+        <div>
+          <p class='content__comment'>${this.comment}</p>
+        </div>
+      </div>
+    </div>`
   }
 }
 
-//Array with the three sample comments from the mockup
+//Array with the three sample comments from the mockup. Each index of the array creates a new Comment object as per the object above
 let commentsArray = [
                       new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
                       new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
@@ -173,9 +190,14 @@ function displayComment(comment) {
   commentsArray.unshift(comment);
 
   //appends comments array with the rendered html
-  commentsArray.forEach(element => {
-    commentArea.appendChild(element.render());
-  });
+  // commentsArray.forEach(element => {
+  //   commentArea.appendChild(element.render());
+  // });
+
+  display = commentsArray.map(element => element.render()).join('');
+
+  //The display array is then inputted into the innerHTML of the target div
+  commentArea.innerHTML = display;
 }
 
 //Function that handles the addition of a new comment
@@ -225,6 +247,12 @@ submitButton.addEventListener('click', addComment);
   let commentArea = document.querySelector('.comments--posted');
 
 //This will display the sample comments in the commentsArray when the page loads.
-  commentsArray.forEach(element => {
-    commentArea.appendChild(element.render());
-});
+//   commentsArray.forEach(element => {
+//     commentArea.appendChild(element.render());
+// });
+
+
+  let display = commentsArray.map(element => element.render()).join('');
+
+  //The display array is then inputted into the innerHTML of the target div
+  commentArea.innerHTML = display;

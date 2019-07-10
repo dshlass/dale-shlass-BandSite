@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Band Site | Shows</title>
-  <link rel="stylesheet" href="../css/master.css">
+  <link rel="stylesheet" href="../css/shows.css">
 
 </head>
 <body>
@@ -25,85 +25,89 @@
         </li>
       </ul> <!--End of navigation list-->
     </nav> <!--End of Navigation-->
-    <div class="header__shows-hero-wrapper">
-      <div class="shows__flex-wrapper">
-      <div>
-        <h3 class="shows__title--album">Woman Worldwide Album</h3>
-        <h1 class="shows__title">Waters of Nazareth x We Are your Friends x Phantom</h1> <!--Hero header and page title-->
-      </div>
-        <iframe class="shows__media-player" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/654120825&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-    
-      </div>
-</div>
-
+    <div class="header__hero-wrapper--shows"> <!--Height of the wrapper set here-->
+      <div class="shows__flex-wrapper">  <!--Outter flex-wrapper starts here-->
+        <div class="shows__title-wrapper">  <!--Flex wrapper item 1-->
+          <h3 class="shows__title--album">Woman Worldwide Album</h3>
+          <h1 class="shows__title">Waters of Nazareth x We Are your Friends x Phantom</h1> <!--Hero header and page title-->
+        </div>
+        <iframe class="shows__media-player" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/654120825&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> <!--Flex wrapper item 2-->
+      </div> <!--Outter flex-wrapper ends here-->
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Shows</h2>
-      <div>
-        <p>Dates</p>
-        <p>Venue</p>
-        <p>Location</p>
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Mon Dec 17, 2018</p>
-        <p>Venue</p>
-        <p>Ronald Lane</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Tue Jul 18, 2019</p>
-        <p>Venue</p>
-        <p>Pier 3 East</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Fri Jul 22, 2019</p>
-        <p>Venue</p>
-        <p>View Loungue</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
+    <section class="section section--shows-page">
+      <h2 class="section__title section__title--shows-page">Shows</h2>
+      <div class="shows__content">
+        <div class="shows__column-header-wrapper">
+          <p class="shows__column-header shows__column-header--date">Dates</p>
+          <p class="shows__column-header shows__column-header--venue">Venue</p>
+          <p class=" shows__column-header shows__column-header--location">Location</p>
+        </div>
 
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Sat Aug 12, 2019</p>
-        <p>Venue</p>
-        <p>Hyatt Agency</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Mon Dec 17, 2018</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Ronald Lane</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
 
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Fri Sep 05, 2019</p>
-        <p>Venue</p>
-        <p>Moscow Center</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Tue Jul 18, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Pier 3 East</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
 
-      </div>
-      <div>
-        <p>Dates</p>
-        <p>Wed Aug 11, 2019</p>
-        <p>Venue</p>
-        <p>Pres Club</p>
-        <p>Location</p>
-        <p>San Fancisco, CA</p>
-        <button>Buy Tickets</button>
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Fri Jul 22, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">View Loungue</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
 
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Sat Aug 12, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Hyatt Agency</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
+
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Fri Sep 05, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Moscow Center</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
+
+        <div class="shows__tour-wrapper">
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Wed Aug 11, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Pres Club</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div>
       </div>
+     
     </section>
   </main>
 

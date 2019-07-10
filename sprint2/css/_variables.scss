@@ -182,12 +182,14 @@ $column--desktop: 6.8rem;
 }
 
 %buttons {
-  @extend %paragraph-bold;
+  @extend %paragraph-regular;
+  @include font-family(AvenirDemiBold);
   color: white;
   text-transform: uppercase;
   border-radius: 4px;
   background: $primary-cta;
-  padding: 10px 40px; //possible adjusting
+  padding: 10px 35px; //possible adjusting
+  height: 4.8rem;
 
   &:hover {
     background: $primary-cta-hover;

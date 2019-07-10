@@ -1,0 +1,189 @@
+@import './master.scss';
+
+.shows {
+
+    &__flex-wrapper {
+      padding-top: 6.4rem;
+
+      @media #{$Tablet} {
+        padding-top: 9.6rem;
+      }
+
+      @media #{$Desktop} {
+        padding-top: 18rem;
+        flex:1;
+        display: flex;
+        // justify-content: space-between;
+      }
+    }
+
+    &__title-wrapper {
+      @include media-max-width(Mobile, 4, 4);
+
+      @media #{$Tablet} {
+        @include media-max-width(Tablet, 5, 4);
+      }
+
+      @media #{$Desktop} {
+      @include media-max-width(Desktop, 6.4, 6);
+        align-self: flex-end;
+        padding-bottom: 0;
+        margin-right: 6.4rem;
+      }
+    }
+
+    &__title {
+      @extend %header-hero;
+      color: #FFF;
+      padding-bottom: 6.4rem;
+
+      @media #{$Desktop} {
+        padding-bottom: 0;
+      }
+
+      &--album {
+        @extend %header-sub;
+        @include font-family(AvenirDemiBold);
+        color: #FFF;
+        margin-bottom: 2.4rem;
+      }
+    }
+    
+    &__media-player {
+      max-height: 14.6rem;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+
+      @media #{$Tablet} {
+        max-width: 436px;
+      }
+
+      @media #{$Desktop} {
+        margin-bottom: 2rem;
+        align-self: flex-end;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      max-width: 804px;
+    }
+
+    &__column-header-wrapper {
+      display: none;
+
+      @media #{$Tablet} {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.6rem;
+
+
+        @include media-max-width(Tablet, 4,3);
+      }
+
+      @media #{$Desktop} {
+        @include media-max-width(Tablet, 4,5);
+      }
+    }
+
+    &__column-header {
+      @extend .comments__label;
+    
+      &--date {
+        flex: 1 1 auto;
+        @include media-max-width(Tablet, 2, 1);
+      }
+      &--venue {
+        flex: 1 1 auto;
+        @include media-max-width(Tablet, 1, 1); 
+        @media #{$Desktop} {
+      }
+      }
+      &--location {
+        flex: 1 1 auto;
+        @include media-max-width(Tablet, 1, 1);
+      }
+      
+    }
+
+    &__tour-wrapper {
+      @extend %bottom-divider;
+      margin-bottom: 2.4rem;
+
+      @media #{$Tablet} {
+        display: flex;
+        align-content: flex-start;
+      }
+    }
+
+    &__tour-label {
+      @extend .comments__label;
+      margin-bottom: 1.6rem;
+
+      @media #{$Tablet} {
+        display: none;        
+      }
+    }
+
+    &__tour-date {
+      @extend %paragraph-bold;
+      font-weight: 600;
+      margin-bottom: 2.4rem;
+      
+      @media #{$Tablet} {
+        flex: 1 1 auto;
+        @include media-max-width(Tablet, 2, 1);
+      }
+    }
+
+    &__tour-venue {
+      @extend %paragraph-regular;
+      margin-bottom: 1.6rem;
+      
+      @media #{$Tablet} {
+                flex: 1 1 auto;
+
+        @include media-max-width(Tablet, 1, 1);
+      }
+      @media #{$Desktop} {
+        margin-left: 25px;
+      }
+
+    }
+
+    &__tour-location {
+      @extend %paragraph-regular;
+      margin-bottom: 3.2rem;
+      
+      @media #{$Tablet} {
+                flex: 1 1 auto;
+
+        @include media-max-width(Tablet, 1, 1);
+      }
+      
+      @media #{$Desktop} {
+        margin-left: 25px;
+      }
+
+    }
+
+    &__submit {
+      @extend %buttons;
+      width: 100%;
+      margin-bottom: 1.6rem;
+
+      @media #{$Tablet} {
+        max-width: 16rem;
+        margin-left: auto;
+      }
+
+      @media #{$Desktop} {
+        // margin-left: 50px;
+      }
+    }
+
+
+
+
+  }

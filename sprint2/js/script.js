@@ -127,7 +127,7 @@ class Comment {
   }
 }
 
-//Array with the three sample comments from the mockup
+//Array with the three sample comments from the mockup. Each index of the array creates a new Comment object as per the object above
 let commentsArray = [
                       new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
                       new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
