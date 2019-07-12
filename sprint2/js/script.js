@@ -151,33 +151,18 @@ class Comment {
 
     //Outtermost div is returned for use
     return postedComment;
-
-    /*
-      This may seem confusing but the structure will look like this:
-      
-      <div class='comments__posted-comment'>
-        <div class='comments__img'>
-          <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
-        </div>
-        <div class='content'>
-          <div class='content__flex'>
-            <p class="content__username">${this.username}</p>
-            <p class="content__date">${this.verifyTime}</p>
-          </div>
-          <div>
-            <p class='content__comment'>${this.comment}</p>
-          </div>
-        </div>
-      </div>
-    */
   }   //End of the render() method
 } //End of the Comment Class
 
 //For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
 let buildComments = () => {
-  commentsArray.forEach(element => {
-      commentArea.appendChild(element.render());
-  });
+  //error handling
+  if (commentsArray !== undefined){
+    commentsArray.forEach(element => {
+        commentArea.appendChild(element.render());
+    });
+  }
+
 } 
 
  //Function that displays the array                    
@@ -202,19 +187,17 @@ let addComment = (event) => {
   event.preventDefault();
   
   //Targets both the name and comment inputs
-  // let inputName = document.querySelector('.comments__input--name');
-  // let inputComment = document.querySelector('.comments__input--comment');
-
   let inputName = event.target.name;
   let inputComment = event.target.comment;
 
-  //Reads the input values of both the name and comment inputs
-  // let inputNameValue = inputName.value || 'Anonymous'; //This will allow people to submit anonymous comments
-  // let inputCommentValue = inputComment.value;
-
   //Error popup when you submit with the comment box empty
-  if (!inputComment.value || !inputName.value) {
-    window.alert('Please leave a comment');  
+  if (!inputName.value || !inputComment.value) {
+    
+    if (!inputComment.value){
+      window.alert('You must submit a comment!');  
+    }
+    else window.alert('You must submit a name!'); 
+    
   }
   
   //Creates a the new comment
