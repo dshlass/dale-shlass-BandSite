@@ -18,6 +18,11 @@
     background: #FAFAFA;
   }
 
+  &--comments {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(40px,40px); 
+  }
+
   &--shows-page {
     @include media-top-padding(32px,48px);
     @include media-bottom-padding(24px,32px); 

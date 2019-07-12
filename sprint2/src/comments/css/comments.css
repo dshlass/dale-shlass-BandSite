@@ -439,6 +439,35 @@ textarea {
   }
 }
 
+.section--comments {
+  padding-top: 32px;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 550px) {
+  .section--comments {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--comments {
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .section--comments {
+    padding-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .section--comments {
+    padding-bottom: 40px;
+  }
+}
+
 .section--shows-page {
   padding-top: 32px;
   padding-bottom: 24px;
