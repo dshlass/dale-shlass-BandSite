@@ -73,14 +73,14 @@
     display: none;
 
     @media #{$Tablet} {
-      @include media-max-width(Tablet, 4,3);
+      // @include media-max-width(Tablet, 4,3);
       display: flex;
       justify-content: space-between;
       margin-bottom: 1.6rem;
     }
 
     @media #{$Desktop} {
-      @include media-max-width(Tablet, 4,5);
+      // @include media-max-width(Tablet, 4,5);
     }
   }
 
@@ -95,12 +95,20 @@
 
     &--venue {
       flex: 1 1 auto;
-      @include media-max-width(Tablet, 1, 1); 
+      @include media-max-width(Tablet, 1, 1);
+
+      @media #{$Desktop} {
+        margin-left: 25px;
+      } 
     }
 
     &--location {
       flex: 1 1 auto;
       @include media-max-width(Tablet, 1, 1);
+
+      @media #{$Desktop} {
+        margin-left: 25px;
+      }
     }
   } //End of column header
 
@@ -171,6 +179,10 @@
       @media #{$Tablet} {
         max-width: 16rem;
         margin-left: auto;
+      }
+
+      &--hidden {
+        visibility: hidden;
       }
     }
   } //End of shows component

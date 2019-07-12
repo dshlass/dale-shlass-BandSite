@@ -1349,7 +1349,6 @@ textarea {
 
 @media only screen and (min-width: 550px) {
   .shows__column-header-wrapper {
-    max-width: 47.2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1357,12 +1356,6 @@ textarea {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin-bottom: 1.6rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .shows__column-header-wrapper {
-    max-width: 52rem;
   }
 }
 
@@ -1380,11 +1373,23 @@ textarea {
   max-width: 12.4rem;
 }
 
+@media only screen and (min-width: 1200px) {
+  .shows__column-header--venue {
+    margin-left: 25px;
+  }
+}
+
 .shows__column-header--location {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   max-width: 12.4rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .shows__column-header--location {
+    margin-left: 25px;
+  }
 }
 
 .shows__tour-wrapper {
@@ -1473,5 +1478,9 @@ textarea {
     max-width: 16rem;
     margin-left: auto;
   }
+}
+
+.shows__submit--hidden {
+  visibility: hidden;
 }
 /*# sourceMappingURL=shows.css.map */
