@@ -4,7 +4,6 @@
   @extend %padding--mobile;
   @extend %padding--tablet;
   @extend %padding--desktop;
-  //add padding and margins etc here -extend
   background: $nav-bg-fill;
   color: white;
 
@@ -43,9 +42,8 @@
 //Start of Social flex container
   .social {
     flex-direction: row;
-    //Need to figure out size and spacing of this section
+    
     &__container {
-      // width: 4rem;
       align-self: center;
       margin-right: 2.4rem;
       @include media-bottom-padding(24px, 56px);
@@ -65,15 +63,11 @@
     }
 
     &__logo {
-      width: 120px;
-      // height: 24px;
-      align-self: center;
-
-      display: none;
       @include media-bottom-padding(24px, 56px);
-
-
-
+      width: 120px;
+      align-self: center;
+      display: none;
+      
       @media #{$Tablet} {
         display: block;
         margin-left: auto;
@@ -85,12 +79,10 @@
 //Start of Contact flex container
   .contact {
     justify-content: space-between;
-    //add bottom padding here
 
     @media #{$Desktop} {
       max-width: percentage(80.4rem / 108.0rem);
     }
-
 
     &__item {
       display: flex;
@@ -109,7 +101,6 @@
       }
 
       &--padding {
-        //add padding here
         padding-bottom: 2.4rem;
       }
     }

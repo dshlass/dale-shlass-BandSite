@@ -28,8 +28,6 @@
       flex-direction: row;
       justify-content: space-between;
     }
-    //This takes into account the percent based bottom margins on the image gallery
-    //24px + 16px mobile, 20px + 24px tablet, 16px + 24px desktop
   }
   
   &__title {
@@ -46,7 +44,7 @@
     
     &--shows-page {
       @include media-bottom-padding(40px,40px);
-      margin-right: 150px;
+      margin-right: 200px;
     }
   }
 
@@ -68,7 +66,7 @@
       @include media-bottom-padding(32px,40px);
       color: $paragraph-text;
 
-      //Have to manually set font-size, font family and due to cascading effect
+      //Manually setting font-size, font family and due to cascading effect
       @media #{$Tablet} {
         @include font-family(AvenirBold);
         @include font-line(1.4rem, 2.2rem);
@@ -139,7 +137,7 @@
     }
   }
 
-  &__img{
+  &__img {
 
     &--shows {
       filter: grayscale(1);
@@ -150,7 +148,7 @@
         transition: all 0.5s;
       }
     }
-  }//End of Image Element
+  } 
 }
 //End of Section components
 

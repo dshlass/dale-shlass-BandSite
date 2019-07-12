@@ -12,6 +12,7 @@
     height: 75rem; //Added 80px height to include the navigation
   }
 
+  //Start of header wrapper
   &__hero-wrapper {
     @extend %padding--mobile;
     @extend %padding--tablet;
@@ -43,10 +44,9 @@
       @media #{$Tablet} {
         height: 67rem;
       }
-
     }
+  } //End of header wrapper
 
-  }
 
   //Header title and media queries
   &__title {
@@ -64,7 +64,7 @@
     }
   }
 
-
+  //Header styles of shows page
   &--shows {
     display: flex;
     flex-direction: column;
@@ -88,6 +88,7 @@
     }
   }
 
+  //Start of item
   &__item {
     text-align: center;
     display: flex;
@@ -120,7 +121,7 @@
         min-width: 80px;
       }
     }
-  }
+  }//End of item
 
   &__logo {
     width: 100px; 
@@ -137,6 +138,11 @@
     border-bottom: 4px solid $nav-bg-fill;
 
     &--hover:hover {
+      color: #FAFAFA;
+      border-bottom: 4px solid #FFF;
+    }
+
+    &--current-page {
       color: #FAFAFA;
       border-bottom: 4px solid #FFF;
     }

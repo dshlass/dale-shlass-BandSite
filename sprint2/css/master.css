@@ -580,6 +580,11 @@ textarea {
   border-bottom: 4px solid #FFF;
 }
 
+.nav__link--current-page {
+  color: #FAFAFA;
+  border-bottom: 4px solid #FFF;
+}
+
 @media only screen and (min-width: 550px) {
   .nav__link {
     padding: 30px 0 24px 0;
@@ -731,7 +736,7 @@ textarea {
 
 .section__title--shows-page {
   padding-bottom: 40px;
-  margin-right: 150px;
+  margin-right: 200px;
 }
 
 @media only screen and (min-width: 550px) {
@@ -1183,12 +1188,12 @@ textarea {
 }
 
 .social__logo {
+  padding-bottom: 24px;
   width: 120px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   display: none;
-  padding-bottom: 24px;
 }
 
 @media only screen and (min-width: 550px) {

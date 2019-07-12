@@ -20,6 +20,18 @@
 
     background: #FAFAFA;
   }
+
+  &--shows-page {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(24px,32px); 
+    display: flex;
+    flex-direction: column;
+
+    @media #{$Desktop} {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
   
   &__title {
     @extend %header-section;
@@ -31,6 +43,11 @@
 
     &--shows {
       @include media-bottom-padding(24px,64px);
+    }
+
+    &--shows-page {
+      @include media-bottom-padding(40px,40px);
+      margin-right: 200px;
     }
   }
 
@@ -52,7 +69,7 @@
       @include media-bottom-padding(32px,40px);
       color: $paragraph-text;
 
-      //Have to manually set font-size, font family and due to cascading effect
+      //Manually setting font-size, font family and due to cascading effect
       @media #{$Tablet} {
         @include font-family(AvenirBold);
         @include font-line(1.4rem, 2.2rem);
@@ -123,7 +140,7 @@
     }
   }
 
-  &__img{
+  &__img {
 
     &--shows {
       filter: grayscale(1);
@@ -134,25 +151,7 @@
         transition: all 0.5s;
       }
     }
-
-    // &--about {
-
-    //   //This iis where I will control the height of the about image
-    //   //Ask about having the image height dynamic!!
-      
-    //   // max-height: 14.5rem;
-
-    //   // @media #{$Tablet} {
-    //   //   max-height: 36.2rem;
-    //   // }
-
-    //   // @media #{$Desktop} {
-    //   //   max-height: 45rem;
-    //   // }
-    // }
-  }
-  
-//End of Image Element
+  } 
 }
 //End of Section components
 

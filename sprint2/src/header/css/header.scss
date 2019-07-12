@@ -14,6 +14,7 @@
     height: 75rem; //Added 80px height to include the navigation
   }
 
+  //Start of header wrapper
   &__hero-wrapper {
     @extend %padding--mobile;
     @extend %padding--tablet;
@@ -30,7 +31,24 @@
     background-position: center;
     background-repeat: no-repeat;
 
-  }
+    &--shows {
+      @extend %padding--mobile;
+      @extend %padding--tablet;
+      @extend %padding--desktop;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+    
+      height: 47.2rem;
+
+      @media #{$Tablet} {
+        height: 67rem;
+      }
+    }
+  } //End of header wrapper
+
 
   //Header title and media queries
   &__title {
@@ -47,28 +65,11 @@
       @include media-max-width(Desktop, 6, 5);
     }
   }
-  
-  &__shows-hero-wrapper {
-      @extend %padding--mobile;
-      @extend %padding--tablet;
-      @extend %padding--desktop;
 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
-    
-      display: flex;
-      flex: 1;
-    }
-
-
+  //Header styles of shows page
   &--shows {
-    height: 55.2rem; //Added 80px height to include the navigation
-
-    @media #{$Tablet} {
-      height: 75rem; //Added 80px height to include the navigation
-    }
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -89,6 +90,7 @@
     }
   }
 
+  //Start of item
   &__item {
     text-align: center;
     display: flex;
@@ -121,15 +123,14 @@
         min-width: 80px;
       }
     }
-  }
+  }//End of item
 
   &__logo {
     width: 100px; 
     margin: 0 auto;
   }
 
-  // Added z-index so the link is above li allowing for you to hover and click
-  //Ask about link and band logo size
+
   &__link {
     @include font-line(1.3rem,1.8rem);
     @include font-family(AvenirDemiBold);
@@ -139,6 +140,11 @@
     border-bottom: 4px solid $nav-bg-fill;
 
     &--hover:hover {
+      color: #FAFAFA;
+      border-bottom: 4px solid #FFF;
+    }
+
+    &--current-page {
       color: #FAFAFA;
       border-bottom: 4px solid #FFF;
     }

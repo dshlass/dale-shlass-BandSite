@@ -580,6 +580,11 @@ textarea {
   border-bottom: 4px solid #FFF;
 }
 
+.nav__link--current-page {
+  color: #FAFAFA;
+  border-bottom: 4px solid #FFF;
+}
+
 @media only screen and (min-width: 550px) {
   .nav__link {
     padding: 30px 0 24px 0;
@@ -731,7 +736,7 @@ textarea {
 
 .section__title--shows-page {
   padding-bottom: 40px;
-  margin-right: 150px;
+  margin-right: 200px;
 }
 
 @media only screen and (min-width: 550px) {
@@ -1183,12 +1188,12 @@ textarea {
 }
 
 .social__logo {
+  padding-bottom: 24px;
   width: 120px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   display: none;
-  padding-bottom: 24px;
 }
 
 @media only screen and (min-width: 550px) {
@@ -1344,6 +1349,7 @@ textarea {
 
 @media only screen and (min-width: 550px) {
   .shows__column-header-wrapper {
+    max-width: 47.2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1351,7 +1357,6 @@ textarea {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin-bottom: 1.6rem;
-    max-width: 47.2rem;
   }
 }
 
@@ -1413,10 +1418,10 @@ textarea {
 
 @media only screen and (min-width: 550px) {
   .shows__tour-date {
+    max-width: 22.4rem;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    max-width: 22.4rem;
   }
 }
 
@@ -1426,10 +1431,10 @@ textarea {
 
 @media only screen and (min-width: 550px) {
   .shows__tour-venue {
+    max-width: 12.4rem;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    max-width: 12.4rem;
   }
 }
 
@@ -1445,10 +1450,10 @@ textarea {
 
 @media only screen and (min-width: 550px) {
   .shows__tour-location {
+    max-width: 12.4rem;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    max-width: 12.4rem;
   }
 }
 

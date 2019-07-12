@@ -1,23 +1,3 @@
-//Instructions
-// Given the updated mockups, add a comments section to the Bio page, which must dynamically update
-// In your JavaScript, create an array that contains at least 3 objects representing sample comments
-// Create a function, displayComment() that takes in one comment object as a parameter and displays it on the page using JavaScript DOM manipulation
-// Create an HTML form whose click or submit event listener does the following:
-
-//     Prevents the page from reloading when submitting a new comment
-//     Constructs a new comment object
-//     Pushes a new comment object to an array of comments
-//     Clears all comments from the page
-//     Re-renders to the page all comments from the comment array
-//     Clears the input fields after submitting a new comment
-//     Note: you will see this form reflected in the creative mockup as a comment box
-
-//Deeper Dive
-//To add a more realistic feel to the site, try updating the timestamp in the comments section 
-//to reflect when it was posted in a more human-readable format. Using YouTube as an example, 
-//a recently posted comment might display the time posted as "10 minutes ago" or "3 days ago". 
-//Apply this type of timestamp to your data without hardcoding the actual message.
-
 //Creates a Comment class that will dictate how the comments will be structured
 class Comment {
   
@@ -28,8 +8,8 @@ class Comment {
     this.date = date
   }
   
-  //Maybe use something like this to set the timestamp?
-  get verifyTime() {
+  //Creates a new key with the name timeStamp which generates the dynamic times of the post.
+  get timeStamp() {
 
     //Setting variables for current date-time
     let pageDate = new Date();
@@ -42,10 +22,11 @@ class Comment {
     let postedMonth = postedDate.getMonth() + 1;
 
     //Set conditionals to calculate the elapsed time
-   //Checks to see if this post was posted this year or last 
+    //Checks to see if this post was posted this year or last 
     if (currentYear >  postedYear) {
 
       let yearDiff = currentYear - postedYear;
+
       //monthDiff will add 12 months to current Month and uses the difference
       //mainly used if a post was posted in december 2018 vs january 2019
       //this would equare to 1 year difference, but in reality it is 1 month.
@@ -82,7 +63,7 @@ class Comment {
       }
 
       //If the post is within the current day
-      else if (dayDiff === 0) {
+      else if (!dayDiff) {
         
         //If the post was posted more than 1 hour ago display in hours
         if (secondDiff >= 36000 ) {
@@ -100,94 +81,157 @@ class Comment {
         }
 
         //displays just now the newest post.
-        else if (secondDiff === 0) {
+        else if (!secondDiff) {
           return `just now`;
         }
       }
     } 
   }
 
-  //Render method will dictate how the HTML shows up on the page
-  //Consider using the append child and text node creation
+  //This method handles the DOM manipulation for new comments created in the class 
   render() {
-    return `<div class='comments__posted-comment'>
-      <div class='comments__img'>
-        <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
-      </div>
-      <div class='content'>
-        <div class='content__flex'>
-          <p class="content__username">${this.username}</p>
-          <p class="content__date">${this.verifyTime}</p>
+
+    //Creates all of the HTML elements and assignes classnames
+    //Outmost div wrapper of each Comment
+    let postedComment = document.createElement('div');
+    postedComment.className = "comments__posted-comment";
+
+    //Image wrapper
+    let commentImgWrapper = document.createElement('div');
+    commentImgWrapper.className = 'comments__img';
+    
+    //Image element 
+    let commentImg = document.createElement('img');
+    commentImg.className = 'comments__img--small';
+    
+    //Content container
+    let contentWrapper = document.createElement('div');
+    contentWrapper.className = 'content';
+    
+    //Content flex-container
+    let contentFlex = document.createElement('div');
+    contentFlex.className = 'content__flex';
+
+    //Username
+    let contentUsername = document.createElement('p');
+    contentUsername.className = 'content__username';
+
+    //Date
+    let contentDate = document.createElement('p');
+    contentDate.className = 'content__date';
+
+    //Unclassed div that acts as the comment wrapper
+    let contentCommentWrapper = document.createElement('div');
+    let contentComment = document.createElement('p');
+    contentComment.className = 'content__comment';
+
+    //Appending all direct children of the Outtermost div first
+    postedComment.appendChild(commentImgWrapper);
+    postedComment.appendChild(contentWrapper);
+
+    //First sibling appended
+    commentImgWrapper.appendChild(commentImg);
+    commentImg.src = 'https://www.fillmurray.com/54/54';
+    
+    //Second sibling appended with their children
+    contentWrapper.appendChild(contentFlex);
+    contentWrapper.appendChild(contentCommentWrapper);
+
+    //First child appended and the username value from the object set as the innerHTML
+    contentFlex.appendChild(contentUsername);
+    contentUsername.innerHTML = this.username;
+    
+    //First child appended and the timeStamp value from the object set as the innerHTML
+    contentFlex.appendChild(contentDate);
+    contentDate.innerHTML = this.timeStamp;
+    
+    //Second child appended and the comment value from the object set as the innerHTML
+    contentCommentWrapper.appendChild(contentComment);
+    contentComment.innerHTML = this.comment;
+
+    //Outtermost div is returned for use
+    return postedComment;
+
+    /*
+      This may seem confusing but the structure will look like this:
+      
+      <div class='comments__posted-comment'>
+        <div class='comments__img'>
+          <img class='comments__img--small' src='https://www.fillmurray.com/54/54'>
         </div>
-        <div>
-          <p class='content__comment'>${this.comment}</p>
+        <div class='content'>
+          <div class='content__flex'>
+            <p class="content__username">${this.username}</p>
+            <p class="content__date">${this.verifyTime}</p>
+          </div>
+          <div>
+            <p class='content__comment'>${this.comment}</p>
+          </div>
         </div>
       </div>
-    </div>`
+    */
   }
 }
 
-//Array with the three sample comments from the mockup. Each index of the array creates a new Comment object as per the object above
-let commentsArray = [
-                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
-                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
-                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
-                    ];
-
  //Function that displays the array                    
-function displayComment() {
+let displayComment = (comment) => {
+  
+  //Clears the displayed area
+  commentArea.innerHTML = ' ';
+  
+  //Pushes new comment into the start of the commentsArray
+  commentsArray.unshift(comment);
 
-  //Targets the div that will be the comment section
-  let test = document.querySelector('.comments--posted');
+//For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
+  commentsArray.forEach(element => {
+    commentArea.appendChild(element.render());
+  });
 
-  //Envokes the render method on each comment object inside of the commentsArray
-  //Each render method is stored as an element of a new array called display
-  //The values of display are then joined into a string and removes the ',' between them
-  //This will be removed if the render method turns into the append child etc
-  let display = commentsArray.map(element => element.render()).join('');
+}  //End of the displayComment function                    
 
-  //The display array is then inputted into the innerHTML of the target div
-  test.innerHTML = display;
-}
 
 //Function that handles the addition of a new comment
-function addComment(e) {
+let addComment = (event) => {
   
-  //Precents the page refresh when input element (button) is clicked
-  e.preventDefault();
+  //Prevents the page refresh when input element (button) is clicked
+  event.preventDefault();
   
   //Targets both the name and comment inputs
   let inputName = document.querySelector('.comments__input--name');
   let inputComment = document.querySelector('.comments__input--comment');
 
   //Reads the input values of both the name and comment inputs
-  let inputNameValue = inputName.value;
+  let inputNameValue = inputName.value || 'Anonymous'; //This will allow people to submit anonymous comments
   let inputCommentValue = inputComment.value;
 
-  //Error popup when you submit a comment without either a name or comment or both
-  if (!inputName.value || !inputComment.value) {
-    window.setTimeout(window.alert, 10, 'Please input both your name and a comment');  
+  //Error popup when you submit with the comment box empty
+  if (!inputCommentValue) {
+    window.alert('Please leave a comment');  
   }
-
-  //Adds the comment
+  
+  //Creates a the new comment
   else {
-    
     let date = new Date()
 
     //Creates a new comment
     const comment = new Comment(inputNameValue, inputCommentValue, date);
-    
-    //Pushes new comment into the start of the commentsArray
-    commentsArray.unshift(comment);
 
     //Calls a function that displays the commentsArray
-    displayComment();
+    displayComment(comment);
 
     //Clears the input and comment values
     inputName.value = '';
     inputComment.value = '';
-  }
-}
+  }  
+} //End of new comment function
+
+//Array with the three sample comments from the mockup. 
+//Each index of the array creates a new instance of the Comment object (declared above)
+let commentsArray = [
+                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
+                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
+                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
+                    ];
 
 //Targets the form submit button
 let submitButton = document.querySelector('.comments__submit');
@@ -195,5 +239,10 @@ let submitButton = document.querySelector('.comments__submit');
 //Adds an event listener to the form submit button
 submitButton.addEventListener('click', addComment);
 
-//This will display the sample comments in the commentsArray when the page loads.
-displayComment();
+//Targets the div that will be the comment section
+let commentArea = document.querySelector('.comments--posted');
+
+//For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
+commentsArray.forEach(element => {
+    commentArea.appendChild(element.render());
+});

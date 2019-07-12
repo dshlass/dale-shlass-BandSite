@@ -259,20 +259,20 @@ template {
   }
 }
 
-.header__hero-wrapper, .header__shows-hero-wrapper {
+.header__hero-wrapper, .header__hero-wrapper--shows {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 @media only screen and (min-width: 550px) {
-  .header__hero-wrapper, .header__shows-hero-wrapper, .nav {
+  .header__hero-wrapper, .header__hero-wrapper--shows, .nav {
     padding-left: 3.125%;
     padding-right: 3.125%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .header__hero-wrapper, .header__shows-hero-wrapper, .nav {
+  .header__hero-wrapper, .header__hero-wrapper--shows, .nav {
     padding-left: 12.5%;
     padding-right: 12.5%;
   }
@@ -362,6 +362,21 @@ textarea {
   background-repeat: no-repeat;
 }
 
+.header__hero-wrapper--shows {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../assets/images/shows-hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+  height: 47.2rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .header__hero-wrapper--shows {
+    height: 67rem;
+  }
+}
+
 .header__title {
   max-width: 21rem;
   color: #FFF;
@@ -379,28 +394,14 @@ textarea {
   }
 }
 
-.header__shows-hero-wrapper {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../assets/images/shows-hero.jpg");
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+.header--shows {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.header--shows {
-  height: 55.2rem;
-}
-
-@media only screen and (min-width: 550px) {
-  .header--shows {
-    height: 75rem;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .nav {
@@ -499,6 +500,11 @@ textarea {
 }
 
 .nav__link--hover:hover {
+  color: #FAFAFA;
+  border-bottom: 4px solid #FFF;
+}
+
+.nav__link--current-page {
   color: #FAFAFA;
   border-bottom: 4px solid #FFF;
 }
