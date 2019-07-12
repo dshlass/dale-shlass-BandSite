@@ -431,8 +431,8 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../../assets/images/hero.jpg");
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../../assets/images/hero.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -442,8 +442,8 @@ textarea {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../../assets/images/shows-hero.jpg");
-  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../../assets/images/shows-hero.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, 0.5))), url("../assets/images/shows-hero.jpg");
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/shows-hero.jpg");
   height: 47.2rem;
 }
 
@@ -765,7 +765,7 @@ textarea {
 
 .section__title--shows-page {
   padding-bottom: 40px;
-  margin-right: 200px;
+  margin-right: 150px;
 }
 
 @media only screen and (min-width: 550px) {
