@@ -85,8 +85,8 @@ class Comment {
           return `just now`;
         }
       }
-    } 
-  }
+    } //End of If the post is within this current year
+  } //End of the timestamp getter
 
   //This method handles the DOM manipulation for new comments created in the class 
   render() {
@@ -170,8 +170,8 @@ class Comment {
         </div>
       </div>
     */
-  }
-}
+  }   //End of the render() method
+} //End of the Comment Class
 
  //Function that displays the array                    
 let displayComment = (comment) => {
