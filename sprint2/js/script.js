@@ -173,6 +173,13 @@ class Comment {
   }   //End of the render() method
 } //End of the Comment Class
 
+//For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
+let buildComments = () => {
+  commentsArray.forEach(element => {
+      commentArea.appendChild(element.render());
+  });
+} 
+
  //Function that displays the array                    
 let displayComment = (comment) => {
   
@@ -182,12 +189,10 @@ let displayComment = (comment) => {
   //Pushes new comment into the start of the commentsArray
   commentsArray.unshift(comment);
 
-//For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
-  commentsArray.forEach(element => {
-    commentArea.appendChild(element.render());
-  });
-
-}  //End of the displayComment function                    
+  //Builds the comment section
+  buildComments();
+}  
+//End of the displayComment function                    
 
 
 //Function that handles the addition of a new comment
@@ -197,15 +202,18 @@ let addComment = (event) => {
   event.preventDefault();
   
   //Targets both the name and comment inputs
-  let inputName = document.querySelector('.comments__input--name');
-  let inputComment = document.querySelector('.comments__input--comment');
+  // let inputName = document.querySelector('.comments__input--name');
+  // let inputComment = document.querySelector('.comments__input--comment');
+
+  let inputName = event.target.name;
+  let inputComment = event.target.comment;
 
   //Reads the input values of both the name and comment inputs
-  let inputNameValue = inputName.value || 'Anonymous'; //This will allow people to submit anonymous comments
-  let inputCommentValue = inputComment.value;
+  // let inputNameValue = inputName.value || 'Anonymous'; //This will allow people to submit anonymous comments
+  // let inputCommentValue = inputComment.value;
 
   //Error popup when you submit with the comment box empty
-  if (!inputCommentValue) {
+  if (!inputComment.value || !inputName.value) {
     window.alert('Please leave a comment');  
   }
   
@@ -214,7 +222,7 @@ let addComment = (event) => {
     let date = new Date()
 
     //Creates a new comment
-    const comment = new Comment(inputNameValue, inputCommentValue, date);
+    const comment = new Comment(inputName.value, inputComment.value, date);
 
     //Calls a function that displays the commentsArray
     displayComment(comment);
@@ -234,15 +242,13 @@ let commentsArray = [
                     ];
 
 //Targets the form submit button
-let submitButton = document.querySelector('.comments__submit');
+let submitButton = document.querySelector('.comments__form');
 
 //Adds an event listener to the form submit button
-submitButton.addEventListener('click', addComment);
+submitButton.addEventListener('submit', addComment);
 
 //Targets the div that will be the comment section
 let commentArea = document.querySelector('.comments--posted');
 
-//For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
-commentsArray.forEach(element => {
-    commentArea.appendChild(element.render());
-});
+//Builds the comment section
+buildComments();
