@@ -31,6 +31,7 @@
   &__title {
     @extend %header-section;
     padding-bottom: 4.0rem;
+    color: $paragraph-text;
   }
 
 //Start of img styles
@@ -48,6 +49,13 @@
       border-radius: 50%;
       margin-top: 2.4rem;
       margin-right: 1.6rem;
+    }
+
+    &--posted {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
     }
   } //End of img styles
 
@@ -110,6 +118,7 @@
     font-weight: 600;
     margin-bottom: 1.6rem;
     margin-right: 1.6rem;
+    color: $paragraph-text;
   }
 
   &__date {
@@ -124,6 +133,8 @@
 
   &__comment {
     @extend %paragraph-regular;
+    color: $paragraph-text;
+
   }
 } //End of Content component
 

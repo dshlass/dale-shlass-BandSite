@@ -66,7 +66,7 @@
 
   &__content {
     flex: 1;
-    max-width: 804px;
+    max-width: 804px; 
   }
 
   &__column-header-wrapper {
@@ -136,6 +136,7 @@
     @extend %paragraph-bold;
     font-weight: 600;
     margin-bottom: 2.4rem;
+    color: $paragraph-text;
     
     @media #{$Tablet} {
       @include media-max-width(Tablet, 2, 1);
@@ -146,6 +147,7 @@
   &__tour-venue {
     @extend %paragraph-regular;
     margin-bottom: 1.6rem;
+    color: $paragraph-text;
     
     @media #{$Tablet} {
       @include media-max-width(Tablet, 1, 1);
@@ -160,6 +162,7 @@
     &__tour-location {
       @extend %paragraph-regular;
       margin-bottom: 3.2rem;
+      color: $paragraph-text;
       
       @media #{$Tablet} {
         @include media-max-width(Tablet, 1, 1);

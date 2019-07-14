@@ -2,10 +2,11 @@
 class Comment {
   
   //Creates the values stored within each new Comment
-  constructor(username, comment, date) {
+  constructor(username, comment, date, img) {
     this.username = username,
     this.comment = comment,
-    this.date = date
+    this.date = date,
+    this.img = img
   }
   
   //Creates a new key with the name timeStamp which generates the dynamic times of the post.
@@ -102,7 +103,7 @@ class Comment {
     
     //Image element 
     let commentImg = document.createElement('img');
-    commentImg.className = 'comments__img--small';
+    commentImg.className = 'comments__img--posted';
     
     //Content container
     let contentWrapper = document.createElement('div');
@@ -131,7 +132,7 @@ class Comment {
 
     //First sibling appended
     commentImgWrapper.appendChild(commentImg);
-    commentImg.src = 'https://www.fillmurray.com/54/54';
+    commentImg.src = `${this.img}`;
     
     //Second sibling appended with their children
     contentWrapper.appendChild(contentFlex);
@@ -154,6 +155,8 @@ class Comment {
   }   //End of the render() method
 } //End of the Comment Class
 
+
+//Function that builds the comments
 //For each element within the commentsArray Append the Comment Area with the rendered method of the each comment.
 let buildComments = () => {
   //error handling
@@ -186,13 +189,14 @@ let addComment = (event) => {
   //Prevents the page refresh when input element (button) is clicked
   event.preventDefault();
   
-  //Targets both the name and comment inputs
+  //Targets both the name and comment inputs and the image
   let inputName = event.target.name;
   let inputComment = event.target.comment;
+  let inputImg = document.querySelector('.comments__img--large').src;
 
   //Error popup when you submit with the comment box empty
   if (!inputName.value || !inputComment.value) {
-    
+
     if (!inputComment.value){
       window.alert('You must submit a comment!');  
     }
@@ -200,12 +204,11 @@ let addComment = (event) => {
     
   }
   
-  //Creates a the new comment
+  //Creates creates a new comment object with the current date timestamp
   else {
     let date = new Date()
 
-    //Creates a new comment
-    const comment = new Comment(inputName.value, inputComment.value, date);
+    const comment = new Comment(inputName.value, inputComment.value, date, inputImg);
 
     //Calls a function that displays the commentsArray
     displayComment(comment);
@@ -219,15 +222,13 @@ let addComment = (event) => {
 //Array with the three sample comments from the mockup. 
 //Each index of the array creates a new instance of the Comment object (declared above)
 let commentsArray = [
-                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18)),
-                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12)),
-                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15))
+                      new Comment("Michael Lyons","They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVERY witnessed", new Date(2018, 11, 18), 'https://www.fillmurray.com/36/36'),
+                      new Comment('Gary Wong', "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He's so talented! I wish I can ride like him one day so I can really enjoy myself!", new Date(2018, 11, 12), 'https://www.fillmurray.com/36/36'),
+                      new Comment('Theodore Duncan', "How can someone be so good!!!! You can tell he lives for this and loves to do it everyday. Everytime I see him I feel insantly happy! He's definitely my favorite ever!", new Date(2018, 10, 15), 'https://www.fillmurray.com/36/36')
                     ];
 
-//Targets the form submit button
+//Targets the form submit button and adds a submit event listener
 let submitButton = document.querySelector('.comments__form');
-
-//Adds an event listener to the form submit button
 submitButton.addEventListener('submit', addComment);
 
 //Targets the div that will be the comment section

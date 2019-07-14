@@ -994,6 +994,7 @@ textarea {
 
 .comments__title {
   padding-bottom: 4.0rem;
+  color: #323232;
 }
 
 .comments__img--small {
@@ -1008,6 +1009,13 @@ textarea {
   border-radius: 50%;
   margin-top: 2.4rem;
   margin-right: 1.6rem;
+}
+
+.comments__img--posted {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .comments__label {
@@ -1079,6 +1087,7 @@ textarea {
   font-weight: 600;
   margin-bottom: 1.6rem;
   margin-right: 1.6rem;
+  color: #323232;
 }
 
 .content__date {
@@ -1090,6 +1099,10 @@ textarea {
   .content__date {
     margin-left: 0;
   }
+}
+
+.content__comment {
+  color: #323232;
 }
 
 .footer {
