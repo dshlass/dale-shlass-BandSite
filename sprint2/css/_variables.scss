@@ -188,14 +188,12 @@ $column--desktop: 6.8rem;
   text-transform: uppercase;
   border-radius: 4px;
   background: $primary-cta;
-  // padding: 10px 35px; //possible adjusting
   height: 4.8rem;
 
   &:hover {
     background: $primary-cta-hover;
   }
   
-  //could be problematic on the shows page
   @media #{$Tablet} {
     @include media-max-width(Tablet, 1, 2);
     align-self: flex-end;
