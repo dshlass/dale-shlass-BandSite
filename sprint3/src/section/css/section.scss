@@ -1,0 +1,162 @@
+@import '../../../css/normalize';
+@import '../../../css/variables';
+
+//Start of Section components
+.section {
+  @extend %padding--mobile;
+  @extend %padding--tablet;
+  @extend %padding--desktop;
+
+  &--about {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(40px,48px);
+  }
+
+  &--shows {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(24px,16px); 
+    //This takes into account the percent based bottom margins on the image gallery
+    //24px + 16px mobile, 20px + 24px tablet, 16px + 24px desktop
+
+    background: #FAFAFA;
+  }
+
+  &--comments {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(40px,40px); 
+  }
+
+  &--shows-page {
+    @include media-top-padding(32px,48px);
+    @include media-bottom-padding(24px,32px); 
+    display: flex;
+    flex-direction: column;
+
+    @media #{$Desktop} {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  &__title {
+    @extend %header-section;
+    color: $paragraph-text;
+
+    &--about {
+      @include media-bottom-padding(24px,48px);
+    }
+
+    &--shows {
+      @include media-bottom-padding(24px,64px);
+    }
+
+    &--shows-page {
+      @include media-bottom-padding(40px,40px);
+      margin-right: 150px;
+    }
+  }
+
+  &__quote {
+    @include media-bottom-padding(40px,56px);
+  }
+
+  //Start of the Text Element
+  &__text {
+    @extend %paragraph-regular;
+    color: $paragraph-text;
+
+    &--bold {
+      @extend %paragraph-bold;
+      color: $paragraph-text
+    }
+
+    &--quote {
+      @include media-bottom-padding(32px,40px);
+      color: $paragraph-text;
+
+      //Manually setting font-size, font family and due to cascading effect
+      @media #{$Tablet} {
+        @include font-family(AvenirBold);
+        @include font-line(1.4rem, 2.2rem);
+        @include media-font(550px, 2.4rem, 3.2rem);
+      }
+    }
+
+    &--description {
+      @media #{$Tablet} {
+        max-width: percentage(34.8rem / 72.0rem);
+      }
+
+      @media #{$Desktop} {
+        max-width: percentage(52rem / 108rem);
+      }
+    }
+  }  
+//End of the Text Element
+
+  &__sub-header {
+    @extend %header-sub;
+    @include media-bottom-padding(24px,42px);
+    color: $paragraph-text;
+  }
+
+  //Start of the Content Element
+  &__content {
+    @media #{$Desktop} {
+      max-width: percentage(8.96rem / 10.8rem);
+      margin: 0 auto;
+    }
+
+    &--description {
+      @media #{$Tablet} {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &--gallery {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @media #{$Tablet} {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  } 
+//End of Content Element
+
+//Start of Image Element
+  &__img-container {
+    @include media-bottom-padding(24px,48px);
+
+    &--gallery {
+      margin-bottom: 1.6rem;
+
+      @media #{$Tablet} {
+        max-width: percentage(2.24rem / 7.2rem);
+        margin-bottom: percentage(0.24rem / 7.2rem);
+      }
+      @media #{$Desktop} {
+        max-width: percentage(3.44rem / 10.8rem);
+        margin-bottom: percentage(0.24rem / 10.8rem);
+      }
+    }
+  }
+
+  &__img {
+
+    &--shows {
+      filter: grayscale(1);
+      transition: all 0.5s;
+
+      &:hover {
+        filter: grayscale(0);
+        transition: all 0.5s;
+      }
+    }
+  } 
+}
+//End of Section components
+

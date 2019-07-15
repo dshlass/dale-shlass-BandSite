@@ -1,0 +1,154 @@
+//Header component
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 26.3rem; //Added 80px height to include the navigation
+
+  @media #{$Tablet} {
+    height: 48rem; //Added 80px height to include the navigation
+  }
+
+  @media #{$Desktop} {
+    height: 75rem; //Added 80px height to include the navigation
+  }
+
+  //Start of header wrapper
+  &__hero-wrapper {
+    @extend %padding--mobile;
+    @extend %padding--tablet;
+    @extend %padding--desktop;
+    
+    flex:1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--shows {
+      @extend %padding--mobile;
+      @extend %padding--tablet;
+      @extend %padding--desktop;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(50, 50, 50, 0.5)), url("../assets/images/shows-hero.jpg");
+    
+      height: 47.2rem;
+
+      @media #{$Tablet} {
+        height: 67rem;
+      }
+    }
+  } //End of header wrapper
+
+
+  //Header title and media queries
+  &__title {
+    @extend %header-hero;
+    @include media-max-width(Mobile, 3, 2);
+
+    color: #FFF;
+
+    @media #{$Tablet} {
+      @include media-max-width(Tablet, 5, 4);
+    }
+
+    @media #{$Desktop} {
+      @include media-max-width(Desktop, 6, 5);
+    }
+  }
+
+  //Header styles of shows page
+  &--shows {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//Nav component
+.nav {
+  background: $nav-bg-fill;
+  @extend %padding--tablet;
+  @extend %padding--desktop;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 8.0rem;
+    justify-content: space-around;
+    
+    @media #{$Tablet} {
+      justify-content: flex-start;
+    }
+  }
+
+  //Start of item
+  &__item {
+    text-align: center;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+
+    &--full {
+      flex: 0 0 100%;
+
+      @media #{$Tablet} {
+        flex: 0;
+        margin-right: 24px;
+      }
+
+      @media #{$Desktop} {
+        margin-right: 56px;
+      }
+    }
+
+    &--half {
+      flex: 0 0 50%;
+      
+      @media #{$Tablet} {
+        flex: 0;
+        margin-right: 24px;
+      }
+
+      @media #{$Desktop} {
+        margin-right: 56px;
+        min-width: 80px;
+      }
+    }
+  }//End of item
+
+  &__logo {
+    width: 100px; 
+    margin: 0 auto;
+  }
+
+
+  &__link {
+    @include font-line(1.3rem,1.8rem);
+    @include font-family(AvenirDemiBold);
+    flex:1;
+    padding: 8px;
+    color: #AFAFAF;
+    border-bottom: 4px solid $nav-bg-fill;
+
+    &--hover:hover {
+      color: #FAFAFA;
+      border-bottom: 4px solid #FFF;
+    }
+
+    &--current-page {
+      color: #FAFAFA;
+      border-bottom: 4px solid #FFF;
+    }
+
+    @media #{$Tablet} {
+      padding: 30px 0 24px 0;
+    }    
+  }
+}
