@@ -121,7 +121,7 @@ class Comment {
     postedComment.id = this.id;
 
     let testButton = document.createElement('button');
-    testButton.className = "button content__delete";
+    testButton.className = "content__delete";
     testButton.addEventListener('click', deleteComments);
     
     postedComment.addEventListener('mouseenter', hoverButton);
@@ -188,6 +188,11 @@ class Comment {
     contentWrapper.appendChild(contentFlex);
     contentWrapper.appendChild(contentCommentWrapper);
 
+    contentWrapper.appendChild(testButton);
+    testButton.innerHTML = 'Delete';
+
+
+
     //First child appended and the username value from the object set as the innerHTML
     contentFlex.appendChild(contentUsername);
     contentUsername.innerHTML = this.name;
@@ -195,9 +200,6 @@ class Comment {
     //First child appended and the timeStamp value from the object set as the innerHTML
     contentFlex.appendChild(contentDate);
     contentDate.innerHTML = this.timeStamp;
-    
-    contentFlex.appendChild(testButton);
-    testButton.innerHTML = 'Delete';
 
     //Second child appended and the comment value from the object set as the innerHTML
     contentCommentWrapper.appendChild(contentComment);
@@ -207,6 +209,30 @@ class Comment {
     return postedComment;
   }   //End of the render() method
 } //End of the Comment Class
+
+
+
+/*
+
+<div class="comments__posted-comment" id="c2054278-c0e5-4635-8661-377735cf0397">
+  <div class="comments__img">
+    <img class="comments__img--posted">
+  </div>
+  <div class="content">
+    <div class="content__flex">
+      <p class="content__username">Dale</p>
+      <p class="content__date">1 minutes ago</p>
+    </div>
+    <div>
+      <p class="content__comment">123</p>
+    </div>
+    <button class="content__delete">Delete</button>
+  </div>
+</div>
+
+
+
+*/
 
 
 //Function that builds the comments
@@ -335,7 +361,7 @@ let commentArea = document.querySelector('.comments--posted');
 
 let deleteComments = (element) => {
       
-  let id = element.target.parentElement.parentElement.parentElement.id;
+  let id = element.target.parentElement.parentElement.id;
   let request = `comments/${id}`;
   url = urlHandler(request);
 

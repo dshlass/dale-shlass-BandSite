@@ -1112,6 +1112,7 @@ textarea {
 .content__delete--hover {
   background: #323232;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .content__comment {

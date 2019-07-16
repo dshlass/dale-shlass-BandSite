@@ -139,16 +139,13 @@
   &--hover {
     background: $paragraph-text;
     margin-left: auto;
-
+    cursor: pointer;
+    }
   }
-  }
-
-
 
   &__comment {
     @extend %paragraph-regular;
     color: $paragraph-text;
-
   }
 } //End of Content component
 
