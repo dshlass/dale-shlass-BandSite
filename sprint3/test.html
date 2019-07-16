@@ -4,103 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Band Site</title>
-  <link rel="stylesheet" href="./css/master.css">
+  <title>Band Site | Shows</title>
+  <link rel="stylesheet" href="../css/shows.css">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <header id="home" class="header"> 
+  <header id="home" class="header--shows"> 
     <nav class="nav"><!--Start of the Navigation-->
       <ul class="nav__list"> <!--Start of navigation list-->
         <li class="nav__item nav__item--full"> <!--Logo takes up full width at mobile-->
-          <a href="./index.html" class="nav__link">
-            <img class="nav__logo" src="./assets/logo/Logo-bandsite.svg" alt="Logo of the band. Spells out Band Site">
+          <a href="../index.html" class="nav__link">
+            <img class="nav__logo" src="../assets/logo/Logo-bandsite.svg" alt="Logo of the band. Spells out Band Site">
           </a>
         </li>
         <li class="nav__item nav__item--half"> <!--Nav links take up half width at mobile-->
-          <a  class="nav__link nav__link--hover nav__link--current-page" href="#about">Biography</a>
+          <a  class="nav__link nav__link--hover" href="../index.html">Biography</a>
         </li>
         <li class="nav__item nav__item--half"> <!--Nav links take up half width at mobile-->
-          <a  class="nav__link nav__link--hover" href="./pages/shows.html">Shows</a>
+          <a  class="nav__link nav__link--hover nav__link--current-page" href="#shows">Shows</a>
         </li>
       </ul> <!--End of navigation list-->
     </nav> <!--End of Navigation-->
-    <div class="header__hero-wrapper">
-      <h1 class="header__title">Gespard Auge &AMP; Xavier de Rosnay</h1> <!--Hero header and page title-->
+    <div class="header__hero-wrapper--shows"> <!--Height of the wrapper set here-->
+      <div class="shows__flex-wrapper">  <!--Outter flex-wrapper starts here-->
+        <div class="shows__title-wrapper">  <!--Flex wrapper item 1-->
+          <h3 class="shows__title--album">Woman Worldwide Album</h3>
+          <h1 class="shows__title">Waters of Nazareth x We Are your Friends x Phantom</h1> <!--Hero header and page title-->
+        </div>
+        <iframe class="shows__media-player" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/654120825&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> <!--Flex wrapper item 2-->
+      </div> <!--Outter flex-wrapper ends here-->
     </div>
   </header>
-  
+
   <main>
-    <section id="about" class="section section--about"> <!--Start of About section-->
-      <h2 class="section__title section__title--about">About the Musicians</h2> 
-      <div class="section__content section__content--about"> <!--Start of About section content-->
-        <div class="section__img-container">
-          <img class="section__img--about" src="./assets/images/band.jpg" alt="Image of the band which consists of a solo guitarist">
+    <section id='shows' class="section section--shows-page"> <!--Start of the Shows section-->
+      <h2 class="section__title section__title--shows-page">Shows</h2>
+      <div class="shows__content"> <!--Start of Show main wrapper-->
+        <div class="shows__column-header-wrapper"> <!--Wrapper for the column headers. visible at tablet size-->
+          <p class="shows__column-header shows__column-header--date">Dates</p>
+          <p class="shows__column-header shows__column-header--venue">Venue</p>
+          <p class=" shows__column-header shows__column-header--location">Location</p>
+          <div class='shows__submit shows__submit--hidden' aria-hidden="true"></div> <!--Added a hidden div to keep the spacing consistency-->
         </div>
-        <blockquote class="section__quote">
-          <p class="section__text--quote section__text--bold">We are more comfortable with not fighting what comes naturally. 
-            Before we might have thought, 'We need to be smarter than this'</p> <!--Quote text-->
-          <footer class="section__text section__text--bold">- Xavier de Rosnay</footer>
-        </blockquote>
-        <h3 class="section__sub-header">Xaview de Rosnay &AMP; Gasoard Augé</h3>
-        <div class="section__content--description"> <!--Start of Content description wrapper-->
-          <p class="section__text section__text--description">Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled, instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his office, signing a record deal.</p>
-          <p class="section__text section__text--description">Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled, instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his office, signing a record deal.</p>
-        </div> <!--End of Content description wrapper-->
-      </div> <!--Start of About section content-->
-    </section> <!--End of About section-->
-
-    <section id="shows" class="section section--shows"> <!--Start of Shows section-->
-      <h2 class="section__title section__title--shows">Photo Gallery</h2>
-      <ul class="section__content--gallery"> <!--Start of Gallery section-->
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-1.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-2.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-3.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-4.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-5.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-6.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-7.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-8.jpg" alt="Generic concert photo">
-        </li>
-        <li class="section__img-container--gallery"> <!--Gallery image container-->
-          <img class="section__img--shows" src="./assets/images/Photo-gallery-9.jpg" alt="Generic concert photo">
-        </li>
-      </ul> <!--End of Gallery section-->
-    </section> <!--End of Shows section-->
-
-    <section class="section section--comments"> <!--Start of the Comments section-->
-      <h2 class="comments__title">Join the Conversation</h2>
-      <div class="comments"> <!-- Start of Comment center wrapper-->
-        <div class="comments__flex"> <!--Start of the flex container for new comments-->
-          <img class="comments__img--large" src="./assets/images/Mohan-muruge.jpg" alt="">
-          <form class="comments__form"> <!--Start of the input form-->
-            <label class='comments__label' for="name">Name</label> 
-            <input type="text" name='name' class='comments__input comments__input--name' placeholder="Enter your name"> <!--Input for the name-->
-            <label class='comments__label' for="comment">Comment</label>
-            <textarea name="comment" class='comments__input comments__input--comment' rows="5" cols="" placeholder="Add a new comment"></textarea> <!--Input for the comment-->
-            <button class='button comments__submit'>Comment</button>
-          </form> <!--End of the input form-->
-        </div> <!--End of the flex container for new comments-->
-        <div class="comments--posted">
-          <!-- Javascript inserted into this div -->
-        </div>
-      </div> <!-- Start of Comment center wrapper-->
-    </section> <!--End of the Comments section--> 
+        <!--All Show__label hide at tablet size-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 1-->
+          <p class="shows__tour-label">Dates</p> 
+          <p class="shows__tour-date">Mon Dec 17, 2018</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Ronald Lane</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 1-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 2-->
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Tue Jul 18, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Pier 3 East</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 2-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 3-->
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Fri Jul 22, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">View Loungue</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 3-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 4-->
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Sat Aug 12, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Hyatt Agency</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 4-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 5-->
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Fri Sep 05, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Moscow Center</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 5-->
+        <div class="shows__tour-wrapper"> <!--Start of Tour Date 6-->
+          <p class="shows__tour-label">Dates</p>
+          <p class="shows__tour-date">Wed Aug 11, 2019</p>
+          <p class="shows__tour-label">Venue</p>
+          <p class="shows__tour-venue">Pres Club</p>
+          <p class="shows__tour-label">Location</p>
+          <p class="shows__tour-location">San Fancisco, CA</p>
+          <button class='shows__submit'>Buy Tickets</button>
+        </div> <!--End of Tour Date 6-->
+      </div> <!--End of Show main wrapper-->
+    </section>  <!--End of the Shows section-->
   </main>
 
   <footer class="footer"> 
@@ -109,22 +111,22 @@
       <ul class="footer__flex social"> <!--Top footer flex item 2 - Social Icons-->
         <li class="social__container"> <!--Social link container-->
           <a class="social__link" href="http://www.instagram.com" target="__blank">
-            <img class="social__img" src="./assets/icons/svg/Icon-instagram.svg" alt="Instagram's logo. A small camera.">
+            <img class="social__img" src="../assets/icons/svg/Icon-instagram.svg" alt="Instagram's logo. A small camera.">
           </a>
         </li>
         <li class="social__container"> <!--Social link container-->
           <a class="social__link" href="http://www.facebook.com" target="__blank">
-            <img class="social__img" src="./assets/icons/svg/Icon-facebook.svg" alt="Facebook's logo. A lowercase letter f.">
+            <img class="social__img" src="../assets/icons/svg/Icon-facebook.svg" alt="Facebook's logo. A lowercase letter f.">
           </a>
         </li>
         <li class="social__container"> <!--Social link container-->
           <a class="social__link" href="http://www.twitter.com" target="__blank">        
-            <img class="social__img" src="./assets/icons/svg/Icon-twitter.svg" alt="Twitter's logo. A small bird.">
+            <img class="social__img" src="../assets/icons/svg/Icon-twitter.svg" alt="Twitter's logo. A small bird.">
           </a>      
         </li>
       </ul> <!--End of top footer flex item 2-->
       <a href="#home" class="social__logo"> <!--Top footer flex item 3 - Band Logo-->
-        <img src="./assets/logo/Logo-bandsite.svg" alt="Logo of the band. Spells out Band Site">
+        <img src="../assets/logo/Logo-bandsite.svg" alt="Logo of the band. Spells out Band Site">
       </a>
     </div> <!--End of Top footer flex container-->
     <ul class="contact footer__flex"> <!--Start of Middle footer flex container-->
@@ -153,7 +155,6 @@
     <p class="contact__text">Copyright The Bees Knees &COPY; 2018 All Rights Reserved</p>
   </footer>
 
-<!-- <script src='./js/script.js'></script> -->
-<script src="./js/test2.js"></script>
+<script src="./js/shows.js"></script>
 </body>
 </html>

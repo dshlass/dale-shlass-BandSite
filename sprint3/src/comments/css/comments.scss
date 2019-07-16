@@ -55,6 +55,7 @@
       height: 36px;
       border-radius: 50%;
       margin-right: 10px;
+      background: grey;
     }
   } //End of img styles
 
@@ -97,6 +98,11 @@
     @extend %bottom-divider;
     display: flex;
     padding: 2.4rem 0;
+  }
+
+  &__bottom-wrapper {
+    display: flex;
+    justify-content: baseline;
   }
 }  //End of Comments component
 
@@ -144,6 +150,10 @@
     opacity: 0; 
     transition: all 0.25s;
 
+    &:focus {
+      opacity: 1; 
+      transition: all 0.25s;
+    }
   
     &--hover {
       transition: all 0.25s;
@@ -153,12 +163,30 @@
     }
   }
 
-  // &__like {
+  &__like {
+    @extend %paragraph-regular;
+    @include font-family(AvenirDemiBold);
+    background: $paragraph-text;
+    color: white;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.25s;
 
-  // }
+    &:hover, &:focus {
+      background: $primary-cta-hover;
+    }
+  }
+
+  &__like-counter {
+    @extend %paragraph-regular;
+    padding: 5px 10px;
+  }
 
   &__comment {
     @extend %paragraph-regular;
     color: $paragraph-text;
+    margin-bottom: 1.6rem;
   }
 } //End of Content component
+
