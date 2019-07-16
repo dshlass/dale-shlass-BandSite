@@ -132,20 +132,33 @@
   }
 
   &__delete {
-    background: white;
-    margin-left: auto;
-    color: white;
-  
-  &--hover {
+    @extend %paragraph-regular;
+    @include font-family(AvenirDemiBold);
     background: $paragraph-text;
+
+    color: white;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
     margin-left: auto;
-    cursor: pointer;
+    opacity: 0; 
+    transition: all 0.25s;
+
+  
+    &--hover {
+      transition: all 0.25s;
+      opacity: 1;
+      margin-left: auto;
+      cursor: pointer;
     }
   }
+
+  // &__like {
+
+  // }
 
   &__comment {
     @extend %paragraph-regular;
     color: $paragraph-text;
   }
 } //End of Content component
-

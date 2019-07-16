@@ -23,12 +23,12 @@ let commentsArray = []
 class Comment {
   
   //Creates the values stored within each new Comment
-  constructor(name, comment, date, id) {
+  constructor(name, comment, date, id, likes) {
     this.name = name,
     this.comment = comment,
     this.date = new Date(date),
-    this.id = id
-    // this.img = img
+    this.id = id,
+    this.likes = likes
   }
   
   //Creates a new key with the name timeStamp which generates the dynamic times of the post.
@@ -142,9 +142,19 @@ class Comment {
     deleteButton.className = "buttons content__delete";
     deleteButton.addEventListener('click', deleteComments);
 
-    // let likeButton = document.createElement('button');
-    // likeButton.className = "buttons content__like";
-    // likeButton.addEventListener('click', likeComments);
+
+    let likeDeleteWrapper = document.createElement('div');
+    likeDeleteWrapper.className = "comments__bottom-wrapper";
+    
+
+
+    let likeButton = document.createElement('button');
+    likeButton.className = "buttons content__like";
+    likeButton.addEventListener('click', likeComments);
+    
+    let likeCounter = document.createElement('p');
+    likeCounter.className = "content__like-counter";
+    
 
 
 
@@ -191,13 +201,20 @@ class Comment {
     contentWrapper.appendChild(contentFlex);
     contentWrapper.appendChild(contentCommentWrapper);
 
-    //
-
-    contentWrapper.appendChild(deleteButton);
-    deleteButton.innerHTML = 'Delete';
+    //likeDeleteWrapper
+    contentWrapper.appendChild(likeDeleteWrapper);
 
     // contentWrapper.appendChild(deleteButton);
     // deleteButton.innerHTML = 'Delete';
+
+    likeDeleteWrapper.appendChild(likeButton);
+    likeButton.innerHTML = 'Like';
+
+    likeDeleteWrapper.appendChild(likeCounter);
+    likeCounter.innerHTML = `${this.likes}`;
+
+    likeDeleteWrapper.appendChild(deleteButton);
+    deleteButton.innerHTML = 'Delete';
 
 
     //First child appended and the username value from the object set as the innerHTML
@@ -309,7 +326,7 @@ let addComment = (event) => {
         
         let element = axiosResponse.data;
         
-        const comment = new Comment(element.name, element.comment, element.timestamp, element.id);
+        const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
         
         displayComment(comment)
 
@@ -347,7 +364,7 @@ function getComments() {
       sortFunction(initialData)
 
       initialData.forEach(element => {
-        const comment = new Comment(element.name, element.comment, element.timestamp, element.id);
+        const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
         commentsArray.push(comment);
       })
 
@@ -367,7 +384,7 @@ let commentArea = document.querySelector('.comments--posted');
 
 let deleteComments = (element) => {
       
-  let id = element.target.parentElement.parentElement.id;
+  let id = element.target.parentElement.parentElement.parentElement.id;
   let request = `comments/${id}`;
   url = urlHandler(request);
 
@@ -392,6 +409,31 @@ let deleteComments = (element) => {
     buildComments();
 
     }).catch(err => console.log(err));
+
+}
+
+
+let likeComments = (element) => {
+
+  let id = element.target.parentElement.parentElement.parentElement.id;
+  let request = `comments/${id}/like`;
+  url = urlHandler(request);
+
+  axios({
+    method: 'put',
+    url: url
+  }).then(axiosResponse => {
+    
+    console.log(axiosResponse);
+    
+    commentsArray = []   
+    commentArea.innerHTML = ' ';
+
+    getComments();
+  
+  }
+  ).catch(err => console.log(err));
+
 
 }
 

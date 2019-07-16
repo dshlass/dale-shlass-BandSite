@@ -287,7 +287,7 @@ template {
   }
 }
 
-.comments__submit, .shows__submit, .section__text, .comments__input, .content__flex, .content__date, .content__comment, .contact__text, .contact__mail, .shows__tour-venue, .shows__tour-location {
+.comments__submit, .shows__submit, .section__text, .comments__input, .content__flex, .content__date, .content__delete, .content__like, .content__like-counter, .content__comment, .contact__text, .contact__mail, .shows__tour-venue, .shows__tour-location {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -295,7 +295,7 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .comments__submit, .shows__submit, .section__text, .comments__input, .content__flex, .content__date, .content__comment, .contact__text, .contact__mail, .shows__tour-venue, .shows__tour-location {
+  .comments__submit, .shows__submit, .section__text, .comments__input, .content__flex, .content__date, .content__delete, .content__like, .content__like-counter, .content__comment, .contact__text, .contact__mail, .shows__tour-venue, .shows__tour-location {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
@@ -1015,6 +1015,7 @@ textarea {
   height: 36px;
   border-radius: 50%;
   margin-right: 10px;
+  background: grey;
 }
 
 .comments__label, .shows__column-header, .shows__tour-label {
@@ -1066,6 +1067,15 @@ textarea {
   padding: 2.4rem 0;
 }
 
+.comments__bottom-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: baseline;
+      -ms-flex-pack: baseline;
+          justify-content: baseline;
+}
+
 .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1104,19 +1114,56 @@ textarea {
 }
 
 .content__delete {
-  background: white;
-  margin-left: auto;
+  font-weight: 500;
+  font-family: AvenirDemiBold, Helvetica, sans-serif;
+  background: #323232;
   color: white;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-left: auto;
+  opacity: 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.content__delete:focus {
+  opacity: 1;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 .content__delete--hover {
-  background: #323232;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  opacity: 1;
   margin-left: auto;
   cursor: pointer;
 }
 
+.content__like {
+  font-weight: 500;
+  font-family: AvenirDemiBold, Helvetica, sans-serif;
+  background: #323232;
+  color: white;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.content__like:hover, .content__like:focus {
+  background: #0065AD;
+}
+
+.content__like-counter {
+  padding: 5px 10px;
+}
+
 .content__comment {
   color: #323232;
+  margin-bottom: 1.6rem;
 }
 
 .footer {

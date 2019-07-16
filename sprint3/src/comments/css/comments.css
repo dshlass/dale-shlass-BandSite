@@ -273,7 +273,7 @@ template {
   }
 }
 
-.comments__submit, .section__text, .comments__input, .content__flex, .content__date, .content__comment {
+.comments__submit, .section__text, .comments__input, .content__flex, .content__date, .content__delete, .content__comment {
   font-weight: 400;
   font-family: AvenirRegular, Helvetica, sans-serif;
   font-size: 1.3rem;
@@ -281,7 +281,7 @@ template {
 }
 
 @media only screen and (min-width: 550px) {
-  .comments__submit, .section__text, .comments__input, .content__flex, .content__date, .content__comment {
+  .comments__submit, .section__text, .comments__input, .content__flex, .content__date, .content__delete, .content__comment {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
@@ -893,13 +893,23 @@ textarea {
 }
 
 .content__delete {
-  background: white;
-  margin-left: auto;
+  font-weight: 500;
+  font-family: AvenirDemiBold, Helvetica, sans-serif;
+  background: #323232;
   color: white;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-left: auto;
+  opacity: 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 .content__delete--hover {
-  background: #323232;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  opacity: 1;
   margin-left: auto;
   cursor: pointer;
 }
