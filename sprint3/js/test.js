@@ -1,5 +1,4 @@
-// const apiKey = '03fb12d9-f603-41d6-940a-e909d577dbb3';
-const apiKey = '4829e293-a170-49f3-891e-ca8148648efe';
+const apiKey = '03fb12d9-f603-41d6-940a-e909d577dbb3';
 
 function urlHandler(endpoint) {
   return `https://project-1-api.herokuapp.com/${endpoint}?api_key=${apiKey}`
@@ -27,7 +26,7 @@ class Comment {
   constructor(name, comment, date, id) {
     this.name = name,
     this.comment = comment,
-    this.date = date,
+    this.date = new Date(date),
     this.id = id
     // this.img = img
   }
@@ -119,10 +118,31 @@ class Comment {
     //Outmost div wrapper of each Comment
     let postedComment = document.createElement('div');
     postedComment.className = "comments__posted-comment";
+    postedComment.id = this.id;
 
-      let testButton = document.createElement('button');
-      testButton.className = "button comments__submit comments__delete";
-      testButton.addEventListener('click', deleteComments);
+    let testButton = document.createElement('button');
+    testButton.className = "button content__delete";
+    testButton.addEventListener('click', deleteComments);
+    
+    postedComment.addEventListener('mouseenter', hoverButton);
+    postedComment.addEventListener('mouseleave', hoverExit);
+
+
+    function hoverButton() {
+      testButton.classList.toggle('content__delete--hover');
+      // testButton.addEventListener('mouseenter', ()=> {
+      //   testButton.style.backgroundColor = "#0065AD";
+      // });
+    }
+
+    function hoverExit() {
+      testButton.classList.toggle('content__delete--hover');
+      // testButton.addEventListener('mouseleave', ()=> {
+      //   testButton.style.backgroundColor = "#323232";
+      // });
+    }
+
+
 
     //Image wrapper
     let commentImgWrapper = document.createElement('div');
@@ -156,7 +176,8 @@ class Comment {
     //Appending all direct children of the Outtermost div first
     postedComment.appendChild(commentImgWrapper);
     postedComment.appendChild(contentWrapper);
-        postedComment.appendChild(testButton);
+    
+    // postedComment.appendChild(testButton);
 
 
     //First sibling appended
@@ -173,8 +194,11 @@ class Comment {
     
     //First child appended and the timeStamp value from the object set as the innerHTML
     contentFlex.appendChild(contentDate);
-    // contentDate.innerHTML = this.timeStamp;
+    contentDate.innerHTML = this.timeStamp;
     
+    contentFlex.appendChild(testButton);
+    testButton.innerHTML = 'Delete';
+
     //Second child appended and the comment value from the object set as the innerHTML
     contentCommentWrapper.appendChild(contentComment);
     contentComment.innerHTML = this.comment;
@@ -190,8 +214,10 @@ class Comment {
 let buildComments = () => {
   //error handling
   if (commentsArray !== undefined){
+      sortFunction(commentsArray)
+
     commentsArray.forEach(element => {
-        commentArea.appendChild(element.render());
+        commentArea.append(element.render());
     });
   }
 
@@ -263,31 +289,40 @@ let addComment = (event) => {
   }  
 } //End of new comment function
 
+function sortFunction(input) {
+
+    input.sort((a,b) => {
+
+      if (a.timestamp === b.timestamp) {
+        return (input.indexOf(a) - input.indexOf(b))
+      } else {
+          return (b.timestamp-a.timestamp)
+      }
+    }
+  )
+}
 
 
 function getComments() {
+  
   let request = 'comments';
   url = urlHandler(request);
   axios.get(url).then(axiosResponse => {
 
       let initialData = axiosResponse.data;
+      console.log(initialData);
 
-      //Sorts the innitial data received by timestamp and pushes to array
-      let sortedArray = initialData.sort((a,b) => {
-          return a.timestamp-b.timestamp;
+      sortFunction(initialData)
+
+      initialData.forEach(element => {
+        const comment = new Comment(element.name, element.comment, element.timestamp, element.id);
+        commentsArray.push(comment);
       })
 
-      sortedArray.forEach(element => {
-          const comment = new Comment(element.name, element.comment, element.timestamp, element.id);
-          commentsArray.unshift(comment);
-      })
+      buildComments();
 
-        buildComments();
-
-        //Add functaionality to the delete button when the comments render
-      // let deleteButton = document.querySelectorAll('.comments__delete');
-      // deleteButton.forEach(element => (element.addEventListener('click', deleteComments)));
     }).catch(err => console.log(err));
+
 };
 
 
@@ -299,23 +334,34 @@ submitButton.addEventListener('submit', addComment);
 let commentArea = document.querySelector('.comments--posted');
 
 let deleteComments = (element) => {
+      
+  let id = element.target.parentElement.parentElement.parentElement.id;
+  let request = `comments/${id}`;
+  url = urlHandler(request);
 
-      // let request = `comments/${id}`;
-      // url = urlHandler(request);
+  axios({
+    method: 'delete',
+    url: url
+  }).then(axiosResponse => {
     
-      console.log(element.target.parentElement)
-      //   axios({
-      //   method: 'delete',
-      //   url: url
-      // }).then(axiosResponse => {
-      //   console.log(axiosResponse)});
+    console.log(axiosResponse.data)
+
+
+    //get the index of the element selected withiin the comment array
+
+    let findObj = commentsArray.find(comment => comment.id === id);
+    
+    let pos = commentsArray.indexOf(findObj);
+
+    commentsArray.splice(pos, 1)
+    
+    commentArea.innerHTML = ' ';
+
+    buildComments();
+
+    }).catch(err => console.log(err));
+
 }
-
-
-//create an empty input with the id of the element
-//use the id of the input to pass into the delete comments function
-//call the removecomments to target that comment
-
 
 getComments();
 

@@ -1,7 +1,6 @@
 @import '../../../css/normalize';
 @import '../../../css/variables';
 @import '../../section/css/section';
-
   //Start of Comments component
 .comments {
   margin: 0 auto;
@@ -107,6 +106,7 @@
 .content {
     display:flex;
     flex-direction: column;
+    flex:1;
 
   &__flex {
     display: flex;
@@ -130,6 +130,20 @@
       margin-left: 0;
     }
   }
+
+  &__delete {
+    background: white;
+    margin-left: auto;
+    color: white;
+  
+  &--hover {
+    background: $paragraph-text;
+    margin-left: auto;
+
+  }
+  }
+
+
 
   &__comment {
     @extend %paragraph-regular;
