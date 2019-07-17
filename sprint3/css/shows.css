@@ -1463,36 +1463,15 @@ textarea {
 }
 
 .shows__column-header--date {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   max-width: 22.4rem;
 }
 
 .shows__column-header--venue {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   max-width: 12.4rem;
-}
-
-@media only screen and (min-width: 1200px) {
-  .shows__column-header--venue {
-    margin-left: 25px;
-  }
 }
 
 .shows__column-header--location {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   max-width: 12.4rem;
-}
-
-@media only screen and (min-width: 1200px) {
-  .shows__column-header--location {
-    margin-left: 25px;
-  }
 }
 
 .shows__tour-wrapper {
@@ -1506,6 +1485,9 @@ textarea {
     display: flex;
     -ms-flex-line-pack: start;
         align-content: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -1523,14 +1505,12 @@ textarea {
   font-weight: 600;
   margin-bottom: 2.4rem;
   color: #323232;
+  text-transform: capitalize;
 }
 
 @media only screen and (min-width: 550px) {
   .shows__tour-date {
     max-width: 22.4rem;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
   }
 }
 
@@ -1542,15 +1522,6 @@ textarea {
 @media only screen and (min-width: 550px) {
   .shows__tour-venue {
     max-width: 12.4rem;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .shows__tour-venue {
-    margin-left: 25px;
   }
 }
 
@@ -1562,15 +1533,6 @@ textarea {
 @media only screen and (min-width: 550px) {
   .shows__tour-location {
     max-width: 12.4rem;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .shows__tour-location {
-    margin-left: 25px;
   }
 }
 
@@ -1582,7 +1544,6 @@ textarea {
 @media only screen and (min-width: 550px) {
   .shows__submit {
     max-width: 16rem;
-    margin-left: auto;
   }
 }
 

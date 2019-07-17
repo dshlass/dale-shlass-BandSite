@@ -89,25 +89,25 @@
     @extend .comments__label;
   
     &--date {
-      flex: 1 1 auto;
+      // flex: 1 1 auto;
       @include media-max-width(Tablet, 2, 1);
     }
 
     &--venue {
-      flex: 1 1 auto;
+      // flex: 1 1 auto;
       @include media-max-width(Tablet, 1, 1);
 
       @media #{$Desktop} {
-        margin-left: 25px;
+        // margin-left: 25px;
       } 
     }
 
     &--location {
-      flex: 1 1 auto;
+      // flex: 1 1 auto;
       @include media-max-width(Tablet, 1, 1);
 
       @media #{$Desktop} {
-        margin-left: 25px;
+        // margin-left: 25px;
       }
     }
   } //End of column header
@@ -120,6 +120,7 @@
     @media #{$Tablet} {
       display: flex;
       align-content: flex-start;
+      justify-content: space-between;
     }
   }
 
@@ -137,10 +138,11 @@
     font-weight: 600;
     margin-bottom: 2.4rem;
     color: $paragraph-text;
+    text-transform: capitalize;
     
     @media #{$Tablet} {
       @include media-max-width(Tablet, 2, 1);
-      flex: 1 1 auto;
+      // flex: 1 1 auto;
     }
   }
 
@@ -151,11 +153,11 @@
     
     @media #{$Tablet} {
       @include media-max-width(Tablet, 1, 1);
-      flex: 1 1 auto;
+      // flex: 1 1 auto;
     }
 
     @media #{$Desktop} {
-      margin-left: 25px;
+      // margin-left: 25px;
     }
   }
 
@@ -166,11 +168,11 @@
       
       @media #{$Tablet} {
         @include media-max-width(Tablet, 1, 1);
-        flex: 1 1 auto;
+        // flex: 1 1 auto;
       }
       
       @media #{$Desktop} {
-        margin-left: 25px;
+        // margin-left: 25px;
       }
     }
 
@@ -181,7 +183,7 @@
 
       @media #{$Tablet} {
         max-width: 16rem;
-        margin-left: auto;
+        // margin-left: auto;
       }
 
       &--hidden {
