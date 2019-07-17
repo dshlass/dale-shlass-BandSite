@@ -117,18 +117,18 @@ let buildShows = () => {
 //End of the displayComment function                    
 
 //Sort by Date
-function sortFunction(input) {
+// function sortFunction(input) {
 
-    input.sort((a,b) => {
+//     input.sort((a,b) => {
 
-      if (a.timestamp === b.timestamp) {
-        return (input.indexOf(a) - input.indexOf(b))
-      } else {
-          return (b.timestamp-a.timestamp)
-      }
-    }
-  )
-}
+//       if (a.timestamp === b.timestamp) {
+//         return (input.indexOf(a) - input.indexOf(b))
+//       } else {
+//           return (b.timestamp-a.timestamp)
+//       }
+//     }
+//   )
+// }
 
 
 function getShows() {
