@@ -1,4 +1,3 @@
-
 /**
  * urlHandler function
  * -> takes in the endpoint from the user (where they want to call the API)
@@ -10,6 +9,7 @@ function urlHandler(endpoint) {
   return `https://project-1-api.herokuapp.com/${endpoint}?api_key=${apiKey}`
 }
 
+//This is the main array that holds all the comments
 let commentsArray = []
 
 //Creates a Comment class that will dictate how the comments will be structured
@@ -228,6 +228,7 @@ class Comment {
 let buildComments = () => {
   //error handling
   if (commentsArray !== undefined){
+      
       sortFunction(commentsArray)
 
     commentsArray.forEach(element => {
@@ -292,23 +293,23 @@ let addComment = (event) => {
       comment: `${inputComment.value}`
     };
 
-      axios({
-        method: 'post',
-        url: url,
-        contentType: 'application/json',
-        data: body
-      }).then(axiosResponse => {
+    axios({
+      method: 'post',
+      url: url,
+      contentType: 'application/json',
+      data: body
+    }).then(axiosResponse => {
 
-        if (axiosResponse) {
-          let element = axiosResponse.data;
-        
-          const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
-        
-          displayComment(comment);
-        }
-        else throw new Error("Could not add new comment. Please refresh the page and try again");
+      if (axiosResponse.status === 200) {
+        let element = axiosResponse.data;
+      
+        const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
 
-        }).catch(err => console.log(err));
+        displayComment(comment);
+      }
+      else throw new Error("Could not add new comment. Please refresh the page and try again");
+
+    }).catch(err => console.log(err));
 
     inputName.value = '';
     inputComment.value = '';
@@ -318,7 +319,6 @@ let addComment = (event) => {
 
 /**
  * sortFunction function
- * 
  * -> sorts the received data by timestamp
  * -> a conditional was implimented to determine the index at which they were posted to the server
  *    becuase the sort function defaults to the alphabetical order if the values are the same
@@ -331,15 +331,16 @@ function sortFunction(input) {
       if (a.timestamp === b.timestamp) {
         return (input.indexOf(a) - input.indexOf(b))
       } else {
-          return (b.timestamp-a.timestamp)
+        return (b.timestamp-a.timestamp)
       }
+
     }
   )
+
 }
 
 /**
  * getComments function
- * 
  * -> initiated as soon as the page loads
  * -> the data is stored and sorted by the sortFunction function
  * -> each index of the sorted array instantiates a new comment object and pushes it to the commentsArray array
@@ -351,27 +352,30 @@ function getComments() {
   let request = 'comments';
   url = urlHandler(request);
   
-  axios.get(url).then(axiosResponse => {
+  axios({
+    method: 'get',
+    url: url
+  }).then(axiosResponse => {
       
-      if (axiosResponse) {
-        let initialData = axiosResponse.data;
-        sortFunction(initialData)
+    if (axiosResponse.status === 200) {
+        
+      let initialData = axiosResponse.data; 
+      sortFunction(initialData)
 
-        initialData.forEach(element => {
-          const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
-          commentsArray.push(comment);
-        })
+      initialData.forEach(element => {
+        const comment = new Comment(element.name, element.comment, element.timestamp, element.id, element.likes);
+        commentsArray.push(comment);
+      })
 
-        buildComments();
-      }
-      else throw new Error('There are no comments. Please add a comment.')
-      
-    }).catch(err => console.log(err));
+      buildComments();
+    }
+    else throw new Error('There are no comments. Please add a comment.')
+    
+  }).catch(err => console.log(err));
 };
 
 /**
  * deleteComment function
- * 
  * -> prevents the page from reloading
  * -> identifies the id of the targets great ancestor element (div with class comments__posted-comment)
  * -> inputs the id into the request url and builds the request URL for axios
@@ -396,7 +400,7 @@ let deleteComments = (element) => {
     url: url
   }).then(axiosResponse => {
 
-    if(axiosResponse) {
+    if(axiosResponse.status === 200) {
       let findObj = commentsArray.find(comment => comment.id === id);
           
       let pos = commentsArray.indexOf(findObj);
@@ -414,12 +418,10 @@ let deleteComments = (element) => {
 
 /**
  * likeComments function
- * 
  * -> identifies the id of the targets great ancestor element (div with class comments__posted-comment)
  * -> inputs the id into the request url and builds the request URL for axios
  * -> Axios PUT request
- * -> Clears the array and the display div
- * -> Then initiates a GET request on the server and displays the data
+ * -> If we receive an object from the server, add one to the like count. When the page refreshes it should automatically be updated.
  */
 
 let likeComments = (element) => {
@@ -434,16 +436,14 @@ let likeComments = (element) => {
     method: 'put',
     url: url
   }).then(axiosResponse => {
-    
-    if(axiosResponse) {
-      commentsArray = []   
-      commentArea.innerHTML = ' ';
 
-      getComments();
+    if(axiosResponse.status === 200) {
+      let likeCounter = element.target.nextSibling;
+      likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
     }
     else throw new Error('Could not find this comment. Refresh the page and try again.')
-
   }
+
   ).catch(err => console.log(err));
 
 }
