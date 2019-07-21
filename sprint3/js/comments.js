@@ -139,6 +139,7 @@ class Comment {
     deleteButton.className = "buttons content__delete";
     deleteButton.addEventListener('click', deleteComments);
 
+    //wrapper for the like and delete button
     let likeDeleteWrapper = document.createElement('div');
     likeDeleteWrapper.className = "comments__bottom-wrapper";
 
@@ -147,6 +148,7 @@ class Comment {
     likeButton.className = "buttons content__like";
     likeButton.addEventListener('click', likeComments);
     
+    //Like counter element
     let likeCounter = document.createElement('p');
     likeCounter.className = "content__like-counter";
 
@@ -207,9 +209,11 @@ class Comment {
     likeDeleteWrapper.appendChild(likeButton);
     likeButton.innerHTML = 'Like';
 
+    //Like counter appended and the like value from the object set as the innerHTML
     likeDeleteWrapper.appendChild(likeCounter);
     likeCounter.innerHTML = `${this.likes}`;
-
+    
+    //Delete button appended and the like value from the object set as the innerHTML
     likeDeleteWrapper.appendChild(deleteButton);
     deleteButton.innerHTML = 'Delete';
 
